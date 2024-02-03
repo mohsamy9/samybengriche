@@ -19,6 +19,13 @@ h1 {
     color: #4a90e2; /* Bleu vif */
 }
 
+h2 {
+    color: #000000; /* Violet vif */
+    font-family: Arial, sans-serif;
+    /*centre lke texte*/
+    text-align: center;
+}
+
 p {
     color: #555; /* Texte gris */
     font-family: Georgia, serif;
