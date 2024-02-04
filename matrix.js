@@ -7,7 +7,7 @@ canvas.width = window.innerWidth;
 const hanzi = "田由甲申甴电甶男甸甹町画甼甽甾甿畀畁畂畃畄畅畆畇畈畉畊畋界畍畎畏畐畑";
 const katakana = "ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ";
 const latin = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const numbers = "0123456789";
+const numbers = "0123456789"
 
 const characters = hanzi + latin + numbers + katakana;
 
@@ -39,7 +39,7 @@ const draw = () => {
 
 };
 
-setInterval(draw, 30);
+setInterval(draw, 40);
 
 
 

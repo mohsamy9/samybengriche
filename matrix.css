@@ -1,5 +1,5 @@
 html {
-    background: black;
+    background: rgb(255, 255, 255);
     height: 100%;
     overflow: hidden;
 }
@@ -8,4 +8,117 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+}
+
+img {
+    /*centré au milieu de la page*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.bluepill {
+    /*centré au milieu de la page*/
+    /*display: inline-block;*/
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    position: absolute;
+    top: 80%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    /*animation*/
+    animation: blueanimate 0.5s infinite;
+}
+
+.bluepill a {
+    color: #00f;
+    text-decoration: none;
+    background-color: aliceblue;
+    border-radius: 5px; 
+    display: inline-block;
+    
+}
+
+.bluepill a:hover {
+    background-color: #4e7af5;
+}
+
+
+
+@keyframes blueanimate {
+    0% {
+        box-shadow: 0 0 20px #00f, 0 0 50px #00f, 0 0 70px #00f, 0 0 100px #00f;
+    }
+
+    40% {
+        box-shadow: 0 0 20px #00f, 0 0 50px #00f, 0 0 70px #00f, 0 0 100px #00f;
+    }
+
+    60% {
+        box-shadow: 0 0 20px #00f, 0 0 50px #00f, 0 0 70px #00f, 0 0 100px #00f;
+    }
+
+    100% {
+        box-shadow: 0 0 20px #00f, 0 0 50px #00f, 0 0 70px #00f, 0 0 100px #00f;
+    }
+}
+
+.redpill {
+    /*centré au milieu de la page*/
+    /*display: inline-block;*/
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    position: absolute;
+    top: 80%;
+    left: 66%;
+    transform: translate(-50%, -50%);
+    /*animation*/
+    animation: redanimate 0.5s infinite;
+}
+   
+
+.redpill a {
+    color: #f00;
+    text-decoration: none;
+    background-color: aliceblue;
+    border-radius: 5px; 
+    display: inline-block;
+    
+}
+
+.redpill a:hover {
+    background-color: #f54e4e;
+}
+
+@keyframes redanimate {
+    0% {
+        box-shadow: 0 0 20px #f00, 0 0 50px #f00, 0 0 70px #f00, 0 0 100px #f00;
+    }
+
+    40% {
+        box-shadow: 0 0 20px #f00, 0 0 50px #f00, 0 0 70px #f00, 0 0 100px #f00;
+    }
+
+    60% {
+        box-shadow: 0 0 20px #f00, 0 0 50px #f00, 0 0 70px #f00, 0 0 100px #f00;
+    }
+
+    100% {
+        box-shadow: 0 0 20px #f00, 0 0 50px #f00, 0 0 70px #f00, 0 0 100px #f00;
+    }
+}
+
+.escape {
+    /*centré au milieu de la page*/
+    /*display: inline-block;*/
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*animation*/
+    animation: escapeanimate 0.5s infinite;
 }
