@@ -1,33 +1,119 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expériences</title>
-    <!--<link rel="stylesheet" href="style.css">-->
-    <link rel="stylesheet" href="experiences.css">
+    <title>Portfolio</title>
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
 </head>
-<body>
-    <div class="container">
-        <h1>Expériences personnelles</h1>
-        <div class="experience-section">
-            <h2>Formation</h2>
-            <p>Epita</p>
-        </div>
-        <div class="experience-section">
-            <h2>Expérience professionnelle</h2>
-            <p></p>
-        </div>
-        <div class="experience-section">
-            <h2>Projets personnels</h2>
-            <p>42sh</p>
-        </div>
+<body class="theme-dark bg-black text-white">
+
+    <!-- Navigation -->
+    <nav class="flex justify-between items-center py-4 px-6 bg-gray-900 text-white">
+        <a href="#about" class="text-lg font-semibold">About</a>
+        <a href="#experience" class="text-lg font-semibold">Experience</a>
+        <a href="#skills" class="text-lg font-semibold">Skills</a>
+        <a href="#projects" class="text-lg font-semibold">Projects</a>
+        <a href="#contact" class="text-lg font-semibold">Contact</a>
+        <button id="theme-toggler" class="bg-gray-800 p-2 rounded">Toggle Theme</button>
+    </nav>
+
+    <!-- About Me Section -->
+    <section id="about" class="full-height">
+        <div class="content-center">
         
 
+            
+        <h2 class="text-3xl font-bold mb-4">About Me</h2>
+        <p>I'm a student specializing in Network Telecommunications and Security at EPITA...</p>
+
+        <!-- Add more about your background, achievements, etc. -->
     </div>
-    <div class="links">
-        <a href="contacts.html">Contacts</a>
-        <a href="matrix.html">Welcome to the Matrix</a>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="full-height" style="opacity: 1; transition : all 1.6s ease 0s;">
+    
+        <div class="content-center">
+        <h2 class="text-3xl font-bold mb-4">Experience</h2>
+        <div>
+            <!-- Add your experiences here -->
+            <p>Preparatory class Maths Maths Spec before joining EPITA...</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="full-height section">
+        <div class="content-center">
+        <h2 class="text-3xl font-bold mb-4">Skills</h2>
+        <ul>
+            <li>Programming: C, C++, Java, JavaScript, HTML, CSS</li>
+            <li>Soft Skills: Teamwork, Project Management</li>
+            <li>Others: Network Programming, Mobile Telecommunications</li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="full-height section">
+        <div class="content-center">
+        <h2 class="text-3xl font-bold mb-4">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Project Cards -->
+            <div class="project-card" data-project="httpd">
+                <h3 class="text-xl font-semibold">HTTPD Server</h3>
+                <p>Server HTTP1 compliant with the HTTP/1.1 specification...</p>
+            </div>
+            <div class="project-card" data-project="42sh">
+                <h3 class="text-xl font-semibold">42sh</h3>
+                <p>Shell project that reproduces the behavior of a shell...</p>
+            </div>
+            <div class="project-card" data-project="jws">
+                <h3 class="text-xl font-semibold">JWS</h3>
+                <p>Java Web Start project that allows you to launch a Java application...</p>
+            </div>
+        <div class = "project-card" data-project = "tiger compiler">
+            <h3 class = "text-xl font-semibold">Tiger Compiler</h3>
+            <p>Compiler for the Tiger language, a subset of the Pascal language...</p>
+        </div>
+            <!-- More project cards -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="full-height section">
+        <div class="content-center">
+        <h2 class="text-3xl font-bold mb-4">Contact</h2>
+        <p>Email: <a href="mailto:msbenrgiche@gmail.com" class="text-blue-500">mail</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/samy-bengriche-63324a268/" target="_blank" >
+            <svg aria-hidden="true" class = "icon linbkedin " fill = "currentColor" focusable = "false" height = "1em" role = "img" viewBox = "0 0 448 512" width = "1em" xmlns = "http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                
+                <path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
+                </path>
+            </svg>
+    </section>
+
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title"></h2>
+            <p class="modal-description"></p>
+            <p class="modal-skills"></p>
+        </div>
     </div>
+</div>
+    &copy;2024 All rights reserved
+</div>
+    
+
+    <script src="js/script.js"></script>
 </body>
 </html>
