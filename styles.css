@@ -61,9 +61,19 @@ nav {
 }
 
 .toggle-theme-container {
-    margin-left: auto; /* Push the theme toggle to the right */
+    /*tout a gauche*/
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
 }
 
+a.logo.hide-on-mobile {
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: 'Old English Text MT', serif;
+    text-decoration: none;
+}
 
 .logo {
     font-family: 'Old English Text MT', serif;
@@ -95,6 +105,7 @@ nav ul li a {
     margin-left: 10px; /* Espacement supplémentaire pour le bouton */
     margin-bottom: 0; /* Supprimer l'espacement en bas */
     padding: 0; /* Supprimer le padding */
+    color: #000000;
 }
 
 /*.home-section {

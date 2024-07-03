@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
 
-    const navLinks = document.querySelectorAll('nav ul li a');
+    const navLinks = document.querySelectorAll('nav ul li a, .logo');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -77,6 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 top: targetSection.offsetTop,
                 behavior: 'smooth'
             });
+
+            // Fermer le menu après le clic sur un lien
+            navLinksContainer.classList.remove('active');
         });
     });
     
@@ -85,6 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     burger.addEventListener('click', () => {
         navLinksContainer.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (event) => {
+        const isClickInsideNav = navLinksContainer.contains(event.target) || burger.contains(event.target);
+        if (!isClickInsideNav) {
+            navLinksContainer.classList.remove('active');
+        }
     });
 
     const canvas = document.getElementById('matrixCanvas');
