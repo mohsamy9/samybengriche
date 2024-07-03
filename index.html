@@ -1,24 +1,176 @@
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="matrix.css">
-    <title>Bienvenue dans la matrice</title>
+    <!--logo tcom -->
+    <link rel="icon" href="img/TCOM_Logo.png" type="image/png">
+    <title>Samy Bengriche</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+English+Text+MT&display=swap" rel="stylesheet">
 </head>
 <body>
-  <canvas id="Matrix"></canvas>
-  <script src="matrix.js"></script>
-  <img src="morpheus.png" alt="morpheus">
-  <div class="bluepill">
-    <a href="contacts.html">Contacts</a>
-  </div>
-  <div class="redpill">
-    <a href="experiences.html">Expériences</a>
-  </div>
+    <canvas id="matrixCanvas"></canvas>
+    <nav>
+        <div class="logo hide-on-mobile">Samy</div>
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="toggle-theme-container">
+            <a href="#" class="toggle-theme">🌙</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#parcours">Parcours</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="home" class="home-section">
+        <div class="intro reveal">
+            <p>Hi, I'm</p>
+            <h1>Samy.</h1>
+            <h2>Engineering and Computer Science student</h2>
+            <p>Network and telecom engineer</p>
+            <div class="social-links">
+                <a href="cv.pdf" class="cv-button" download>Mon CV</a>
+            </div>
+        </div>
+        <div class="profile-picture reveal">
+            <img src="img/image.png" alt="Profile Picture">
+            <h1>About me</h1>
+            <div class="aboutme">
+                <p>Passionate about computer science and new technologies, I am a student at EPITA in Paris. I am currently in my last year of engineering school, specializing in network and telecommunications.</p>
+            </div>
+        </div>
+    </section>
+    <section id="parcours" class="reveal">
+        <h2>Course</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="img/cdg.jpg" alt="Baccalauréat">
+                <div class="card-content">
+                    <h3>2020</h3>
 
-<div class="escape">
-    <a href="index.html">Escape the Matrix</a>
+                    <p>Baccalauréat scientifique obtenu avec mention.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/langevin.jfif" alt="Classe Prépa">
+                <div class="card-content">
+                    <h3>2020/2022</h3>
+                    <!-- <p>Intégration d'une classe prépa math sup/math spé. (in english)</p> -->
+                    <p>Intégration d'une classe préparatoire aux grandes écoles en mathématiques et physique.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/Epita.png" alt="EPITA">
+                <div class="card-content">
+                    <h3>2022</h3>
+                    <p>Entrée en école d'ingénieur à l'EPITA, spécialisation réseau et télécommunications.</p>
+                </div>
+            </div>
 
-</div>
+            <div class="card">
+                <img src="img/sport.avif" alt="sport">
+                <div class="card-content">
+                    <p>Adepte de sport j'ai pratiqué en compétition le judo pendant 7 ans, atteignant la ceinture marron, et pratique toujours la natation, le football et la basketball.</p>
+                    </div>
+            </div>
+
+            <div class="card">
+                <img src="img/cinéma.webp" alt="cinéma">
+                <div class="card-content">
+                    <p>Passionné de cinéma, je suis un grand fan de films et de séries.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/piano.jpg" alt="piano">
+                <div class="card-content">
+                    <p>J'ai pratiqué le piano en conservatoire pendant 5 ans, et la guitare en autodidacte depuis mes 12 ans.</p>
+                </div>
+            </div>
+
+            <!-- Add more cards as needed -->
+        </div>
+    </section>
+    <section id="skills" class="reveal">
+        <h2>Skills</h2>
+        <div class="terminal">
+            <div class="terminal-header">
+                <span class="terminal-title">Terminal - Samy</span>
+            </div>
+            <div class="terminal-body">
+                <pre><span class="terminal-ps1">Samy@DESKTOP:~$</span> hardskills</pre>
+                <pre id="skills-list"></pre>
+                <pre><span class="terminal-ps1">Samy@DESKTOP:~$</span> softskills</pre>
+                <pre id="softskills-list"></pre>
+            </div>
+        </div>
+    </section>    
+    <section id="projects" class="reveal">
+        <h2>Projects</h2>
+        <div class="expandable-cards-container">
+            <div class="expandable-card">
+                <img src="img/42sh.png" alt="42sh">
+                <div class="card-content">
+                    <h3>Projet 42sh</h3>
+                    <p>Details about Project 42sh.</p>
+                </div>
+            </div>
+            <div class="expandable-card">
+                <img src="img/tiger.jpg" alt="Tiger compiler">
+                <div class="card-content">
+                    <h3>Projet JWS</h3>
+                    <p>Details about Project JWS.</p>
+                </div>
+            </div>
+            <div class="expandable-card">
+                <img src="img/jws.jpg" alt="Java Web Services">
+                <div class="card-content">
+                    <h3>Projet JWS</h3>
+                    <p>Details about Project JWS.</p>
+                </div>
+            </div>
+            <div class="expandable-card">
+                <img src="img/http.png" alt="HTTPd">
+                <div class="card-content">
+                    <h3>Projet JWS</h3>
+                    <p>Details about Project JWS.</p>
+                </div>
+            </div>
+            <div class="expandable-card">
+                <img src="img/pms.png" alt="Projet multi-spé">
+                <div class="card-content">
+                    <h3>Projet JWS</h3>
+                    <p>Details about Project JWS.</p>
+                </div>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+    </section>
+    <section id="contact" class="reveal">
+        <h2>Contact</h2>
+        <p>Vous pouvez me contacter par mail, téléphone ou via LinkedIn.</p>
+        <div class="contactlogo">
+            <a href="mailto: msbengriche@gmail.com"><img src="img/mail.png" alt="Mail"></a>
+            <a href="tel:+33 6 15 21 03 00"><img src="img/phone.png" alt="Phone"></a>
+            <a href="https://www.linkedin.com/in/samy-bengriche-63324a268/" target="_blank"><img src="img/linkedin.png" alt="Linkedin"></a>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Samy. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <div id="projectModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
 </body>
 </html>
