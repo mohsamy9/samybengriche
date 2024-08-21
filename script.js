@@ -4,19 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let isDarkTheme = true;
 
     const skills = [
-        "\n",
-        "Programming languages: C, C++, Java, Python, HTML, CSS, JavaScript, Bash",
-        "\n","Databases: SQL, NoSQL, MongoDB, PostgreSQL",
-        "\n","Data Science: NumPy, Matplotlib",
-        "\n","DevOps: Docker",
-        "\n","Version Control: Git, GitHub, GitLab",
-        "\n","Tools: Visual Studio Code, IntelliJ IDEA",
-        "\n","Microsoft Office: Word, Excel, PowerPoint",
-        "\n","Operating Systems: Linux, Windows","\n",
+        
+        
+        
     ];
 
     const softskills = [
-        "\n","Problem-solving, Teamwork, Communication, Time Management, Leadership, Adaptability, Creativity"
+        
     ];
 
     const softskillsList = document.getElementById('softskills-list');
@@ -121,23 +115,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const draw = () => {
         ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillRect(0, 0, canvas.width, canvas.height); // Clear the canvas
 
-        ctx.fillStyle = '#0F0';
-        ctx.font = fontSize + 'px monospace';
+        ctx.fillStyle = '#0F0'; // Green text
+        ctx.font = fontSize + 'px monospace';  // Font size and style
 
-        for (let i = 0; i < drops.length; i++) {
-            const text = characters.charAt(Math.floor(Math.random() * characters.length));
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        for (let i = 0; i < drops.length; i++) { // Loop over the drops
+            const text = characters.charAt(Math.floor(Math.random() * characters.length)); // Random character
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize); // x, y
 
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {  // Randomize the reset
+                drops[i] = 0;  // Reset the drop
             }
-            drops[i]++;
+            drops[i]++; // Move the drop down
         }
     };
 
-    setInterval(draw, 40);
+    setInterval(draw, 40); // Draw every 40 milliseconds
 
     const modal = document.getElementById("projectModal");
     const modalImg = document.getElementById("modalImage");

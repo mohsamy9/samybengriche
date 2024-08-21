@@ -162,10 +162,14 @@ nav ul li a {
     height: auto;
 }
 
+
+
+
 .aboutme p {
     background: #000000;
     padding: 10px;
     border-radius: 20px;
+    font-size: 1.2rem;
 }
 
 section {
@@ -252,8 +256,15 @@ section {
 }
 
 .card img {
+    /*etirer l'image pour qu'elle prenne toute la place*/
+
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.1s;
+
+
 }
 
 .card-content {
