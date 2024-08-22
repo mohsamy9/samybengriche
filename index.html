@@ -169,50 +169,160 @@
     <section id="projects" class="reveal">
         <h2>Projects</h2>
         <div class="expandable-cards-container">
-            <div class="expandable-card">
-                <img src="img/42sh.png" alt="42sh">
+            <div class="expandable-card" data-project="42sh">
+                <img src="img/42sh.png" alt="42sh: Details about Project 42sh">
                 <div class="card-content">
                     <h3>Projet 42sh</h3>
                     <p>Details about Project 42sh.</p>
                 </div>
             </div>
-            <div class="expandable-card">
-                <img src="img/tiger.jpg" alt="Tiger compiler">
+            <div class="expandable-card" data-project="tiger">
+                <img src="img/tiger.jpg" alt="Tiger compiler: Details about Project Tiger">
+                <div class="card-content">
+                    <h3>Projet TIGER Compiler</h3>
+                    <p> Details about Project Tiger.</p>
+
+                    </div>
+            </div>
+            <div class="expandable-card" data-project="ping">
+                <img src="img/ping.jpg" alt="Ping: Details about Project Ping">
                 <div class="card-content">
                     <h3>Projet JWS</h3>
                     <p>Details about Project JWS.</p>
                 </div>
             </div>
-            <div class="expandable-card">
-                <img src="img/jws.jpg" alt="Java Web Services">
+            <div class="expandable-card" data-project="httpd">
+                <img src="img/http.png" alt="HTTPd: Details about Project HTTPd">
                 <div class="card-content">
                     <h3>Projet JWS</h3>
                     <p>Details about Project JWS.</p>
                 </div>
             </div>
-            <div class="expandable-card">
-                <img src="img/http.png" alt="HTTPd">
+            <div class="expandable-card" data-project="PMS">
+                <img src="img/pms.png" alt="Projet multi-spé: Details about Project PMS">
                 <div class="card-content">
                     <h3>Projet JWS</h3>
                     <p>Details about Project JWS.</p>
                 </div>
             </div>
-            <div class="expandable-card">
-                <img src="img/pms.png" alt="Projet multi-spé">
+
+            <div class="expandable-card" data-project="Zoglu">
+                <img src="img/zoglu.png" alt="Zoglu: Details about Project Zoglu">
                 <div class="card-content">
                     <h3>Projet JWS</h3>
                     <p>Details about Project JWS.</p>
                 </div>
             </div>
-            <div class="expandable-card">
-                <img src="img/epita.png" alt="EPITA">
+            <div class="expandable-card" data-project="chess">
+                <img src="img/chess.jpg" alt="Chess: Details about Project Chess">
                 <div class="card-content">
                     <h3>Projet JWS</h3>
                     <p>Details about Project JWS.</p>
                 </div>
+            </div>
+
+            <div class="expandable-card" data-project="librubik">
+                <img src="img/rubik.png" alt="Librubik: Details about Project Librubik">
+                <div class="card-content">
+                    <h3>Projet JWS</h3>
+                    <p>Details about Project JWS.</p>
+                </div>
+            </div>
+
+            <div class="expandable-card" data-project="ERO">
+                <img src="img/ero.jpg" alt="ERO: Details about Project ERO">
+                <div class="card-content">
+                    <h3>Projet JWS</h3>
+                    <p>Details about Project JWS.</p>
+                </div>
+            </div>
+
+            <div class="expandable-card" data-project="libbistro">
+                <img src="img/bistro.png" alt="Libbistro: Details about Project Libbistro">
+                <div class="card-content">
+                    <h3>Projet JWS</h3>
+                    <p>Details about Project JWS.</p>
+                </div>
+            </div>
+
+            
+
+            <div class="expandable-card" data-project="vorace">
+                <img src="img/vorace.jpg" alt="Vorace: Details about Project Vorace">
+                <div class="card-content">
+                    <h3>Projet JWS</h3>
+                    <p>Details about Project JWS.</p>
+                </div>
+            </div>
+
+            <div class="expandable-card" data-project="jws">
+                <img src="img/jws.jpg" alt="Java Web Services: Details about Project JWS">
+                <div class="card-content">
+                    <h3>Projet JWS</h3>
+                    <p>Details about Project JWS.</p>
+                </div>
+            </div>
+
+
+            <div class="expandable-card" data-project="Malloc">
+                <img src="img/malloc.png" alt="Malloc: Details about Project Malloc">
+                <div class="card-content">
+                    <h3>Projet JWS</h3>
+                    <p>Details about Project JWS.</p>
+                </div>
+            </div>
+            <div class="expandable-card" data-project="Boot Camps">
+                <img src="img/bootcamp.jpg" alt="Boot Camps: Details about Project Boot Camps">
+                <div class="card-content">
+                    <h3>Projet JWS</h3>
+                    <p>Details about Project JWS.</p>
+                </div>
+            </div>
+
+            <div class="expandable-card" data-project="Myfind">
+                <img src="img/find.png" alt="Myfind: Details about Project Myfind">
+                <div class="card-content">
+                    <h3>Projet JWS</h3>
+                    <p>Details about Project JWS.</p>
+                </div>
+           
+
             <!-- Add more cards as needed -->
         </div>
     </section>
+
+<!-- Modal structure -->
+<div id="projectModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-image" id="modalImage" alt="Project Image">
+    <div class="modal-details">
+        <h3 id="modalTitle">Project Title</h3>
+        
+        <div class="detail-section">
+            <h4>Objective:</h4>
+            <p id="modalObjective">Project objective will be displayed here.</p>
+        </div>
+        
+        <div class="detail-section">
+            <h4>Role:</h4>
+            <p id="modalRole">Project role will be displayed here.</p>
+        </div>
+        
+        <div class="detail-section">
+            <h4>Details:</h4>
+            <p id="modalDescription">Project details will be displayed here.</p>
+        </div>
+        
+        <div class="detail-section">
+            <h4>Languages and Tools:</h4>
+            <p id="modalLanguages">Languages and tools used in the project will be displayed here.</p>
+        </div>
+    </div>
+</div>
+
+
+
+
     <section id="contact" class="reveal">
         <h2>Contact</h2>
         <p>Vous pouvez me contacter par mail, téléphone ou via LinkedIn.</p>
