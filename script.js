@@ -133,34 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setInterval(draw, 40); // Draw every 40 milliseconds
 
-   /* const modal = document.getElementById("projectModal");
-    const modalImg = document.getElementById("modalImage");
-    const captionText = document.getElementById("caption");
-    const projectImages = document.querySelectorAll('.expandable-card img');
-    const closeModal = document.getElementsByClassName("close")[0];
-
-    
-    projectImages.forEach(img => {
-        img.addEventListener('click', function(){
-            modal.style.display = "block";
-            modalImg.src = this.src;
-            captionText.innerHTML = this.alt;
-
-        });
-    }
-    );
-
-   
-    
-    closeModal.onclick = function() { 
-        modal.style.display = "none";
-    }
-    
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }*/
+ 
 
         const modal = document.getElementById("projectModal");
 const modalImg = document.getElementById("modalImage");
@@ -284,18 +257,6 @@ const projectDetails = {
     },
 
     "libbistro": {
-        /*You have to implement a library for integer arithmetic computation, in any base, with arbitrary precision (as many digits as necessary).
-The main objective is to have the correct result.
-Another objective is to have the correct result fast, however do keep in mind that performance comes
-second to correctness: it is ill-advised to start optimizing before the features work properly and are
-both thoroughly tested and well documented. There is no point in having only one feature, regardless
-of its optimization, especially if the given result is not always reliable.
-The library is made to be as generic as possible; everything is templated. You will be provided with
-some headers, defining an interface. Your code must respect this interface, but also work with any
-class respecting this interface!
-The goal of this project is to evaluate your C++ programming skills, and your assimilation of the notions seen during the C++ workshop and Tiger. It will involve smart pointers, templates, containers,
-inheritance, overloading, etc…*/
-
         title: "libbistro",
         objective: "Create a library for integer arithmetic computation in any base with arbitrary precision.",
         role: "Developer",
@@ -303,87 +264,12 @@ inheritance, overloading, etc…*/
         languages: "C++", // Added languages
     },
 
-    "vorace": {
-        /*Vorace
-Introduction
-Bouftou is one of the leading e-commerce websites for EPITA. Every month this site generates thousands of euros in revenue from selling snack to students. Interested in this market, you decide to explore it further and develop a competitor to Bouftou.
-
-However, it is important to note that Bouftou has implemented certain measures to protect against scrapers such as user session protected information, rate limits and captchas. You will need to find ways to overcome these obstacles.
-
-Vorace is a project that aims to test your knowledge and skills in JavaScript. Over the course of this project, you will demonstrate your ability to create a scraper tool, also known as a web crawler or spider.*/
-        title: "vorace",
+    "vorace": { title: "vorace",
         objective: "Develop a web scraper tool to extract data from an e-commerce website.",
         role: "Developer",
         description: "Created a web scraper tool to extract data from an e-commerce website, overcoming obstacles such as user session protection, rate limits, and captchas. The project focused on JavaScript programming and web scraping techniques, demonstrating proficiency in data extraction and automation.",
         languages: "JavaScript", // Added languages
     },
-
-
-
-    /* do as well for the other projects */
-    /*Malloc
-Objective: Reimplement a memory allocator in C.
-
-Role: Developer
-
-Details: Undertook the task of reimplementing a memory allocator, a crucial component of system programming. The project involved designing a custom memory management system with features such as allocation, deallocation, and efficient memory reuse. My implementation emphasized performance optimization and robustness, reflecting a deep understanding of low-level memory management.
-
-Myfind and Myprintf
-Objective: Implement the find and printf commands in C, including various options.
-
-Role: Developer
-
-Details: Developed custom implementations of the find and printf commands, replicating their core functionalities and options. The find command allowed for directory traversal and file searching, while printf handled formatted output. These implementations were designed to closely mimic the behavior of their standard counterparts, showcasing my ability to recreate essential command-line utilities.
-
-JWS
-Objective: Create the backend for a Bomberman game.
-
-Role: Backend Developer
-
-Details: Focused on the backend development of the Bomberman game, handling server-side logic and game state management. Implemented features such as player interactions, game updates, and network communication. My work ensured a smooth and responsive gameplay experience, demonstrating strong skills in backend development and real-time system handling.
-
-Boot Camps
-Objective: Intensive learning of programming languages and technologies.
-
-Role: Participant
-
-Details: Completed a series of boot camps focused on mastering various programming languages, including JavaScript, SQL, Java, C, and C++. These intensive sessions provided a solid foundation in multiple technologies and programming paradigms, enhancing my versatility and problem-solving skills across different development environments.
-
-TIPE
-Objective: Simulate virus propagation using a cellular automaton in Python.
-
-Role: Developer
-
-Details: Developed a cellular automaton model in Python to simulate the spread of a virus. The project involved designing and implementing algorithms to represent and track virus propagation within a grid-based environment. My work highlighted my ability to apply computational models to real-world scenarios and demonstrated proficiency in Python programming.
-
-Labyrinthe
-Objective: Create a solvable maze, increase its complexity, and find the shortest path.
-
-Role: Developer
-
-Details: Designed and implemented a maze generation algorithm, focusing on creating complex, solvable mazes and developing algorithms to find the shortest path through them. The project showcased my skills in algorithm design, problem-solving, and implementation of pathfinding techniques.
-
-PMS
-Objective: Analyze and manage a port’s financial and material resources for optimal efficiency.
-
-Role: Project Analyst
-
-Details: Conducted a comprehensive analysis of port operations, focusing on financial, material, and efficiency aspects. Developed recommendations for improving management practices and optimizing resource allocation. This project demonstrated my analytical skills and ability to deliver actionable insights for better port management.
-
-Zoglu
-Objective: Organize the redesign of a company's network system.
-
-Role: Project Manager
-
-Details: Managed the redesign of a company's network infrastructure, overseeing the evaluation of current systems and planning the integration of new technologies. Coordinated with stakeholders to ensure the new system met organizational needs and improved network performance. My role involved strategic planning, resource management, and implementation oversight.
-
-ERO
-Objective: Develop IT solutions for snow removal in Montreal.
-
-Role: Project Lead
-
-Details: Led the research and development of IT solutions to address snow removal challenges in Montreal. Focused on creating systems to optimize snow clearing operations, including data analysis and system integration. My leadership in this project emphasized practical problem-solving and innovative approaches to urban management issues.*/
-
 
 
 
@@ -405,7 +291,7 @@ projectCards.forEach(card => {
 });
 
 closeModal.onclick = function() { 
-    modal.style.display = "none";
+    modal.style.display = "none"; // Close the modal
 }
 
 window.onclick = function(event) {
