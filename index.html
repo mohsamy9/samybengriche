@@ -3,61 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--logo tcom -->
     <link rel="icon" href="img/TCOM_Logo.png" type="image/png">
-    <title>Samy Bengriche</title>
+    <title>Samy Bengriche — Portfolio</title>
+    <meta name="description" content="Samy Bengriche — Network, Security & Telecom Engineer. EPITA graduate specializing in cybersecurity, networks and AI.">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Old+English+Text+MT&display=swap" rel="stylesheet">
 </head>
 <body id="top">
+    <div id="progress-bar"></div>
     <canvas id="matrixCanvas"></canvas>
+
     <nav>
         <a href="#top" class="logo hide-on-mobile">Samy</a>
-        <div class="burger">
+        <div class="burger" aria-label="Toggle menu">
             <div></div>
             <div></div>
             <div></div>
         </div>
-        
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#parcours">Course</a></li>
+            <li><a href="#parcours">Journey</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="toggle-theme-container">
-            <a href="#" class="toggle-theme">🌙</a>
+            <a href="#" class="toggle-theme" aria-label="Toggle theme">🌙</a>
         </div>
     </nav>
+
     <section id="home" class="home-section">
         <div class="intro reveal">
-            <p>Hi, I'm</p>
+            <p class="intro-greeting">Hi, I'm</p>
             <h1>Samy.</h1>
-            <h2>Engineering and Computer Science student</h2>
-            <p>Network, security and telecom engineer</p>
+            <h2 id="typing-text"></h2>
+            <p class="intro-sub">Network, security and telecom engineer</p>
             <div class="social-links">
                 <a href="CV_BENGRICHE_Samy_GP.pdf" class="cv-button" target="_blank">My Resume</a>
+                <a href="https://www.linkedin.com/in/samy-bengriche-63324a268/" class="cv-button linkedin-btn" target="_blank">LinkedIn</a>
             </div>
         </div>
         <div class="profile-picture reveal">
-            <img src="img/image.jpg" alt="Profile Picture">
-            
+            <img src="img/image.jpg" alt="Samy Bengriche">
         </div>
-
     </section>
+
     <section id="about" class="reveal">
-        
-        <h1>About me</h1>
-            <div class="aboutme">
-                <p>Curious by nature and methodical by training, I see technology as both a system to understand and a tool to improve the way we work and communicate. My specialization in networks, cybersecurity, and telecommunications at EPITA has given me a strong foundation in secure architectures, network protocols, and system resilience.
+        <h2>About me</h2>
+        <div class="aboutme">
+            <p>Curious by nature and methodical by training, I see technology as both a system to understand and a tool to improve the way we work and communicate. My specialization in networks, cybersecurity, and telecommunications at EPITA has given me a strong foundation in secure architectures, network protocols, and system resilience.
 
 Through my experience contributing to large-scale AI deployment in an enterprise environment, I have worked on generative AI adoption, prompt engineering strategies, and usage monitoring. Combining this hands-on exposure to AI systems with a solid background in network and security fundamentals, I approach technological innovation with both performance and robustness in mind.</p>
-            </div>
-    
+        </div>
     </section>
+
     <section id="parcours" class="reveal">
         <h2>Journey</h2>
         <div class="card-container">
@@ -71,7 +72,7 @@ Through my experience contributing to large-scale AI deployment in an enterprise
             <div class="card">
                 <img src="img/langevin.jfif" alt="Preparatory Class">
                 <div class="card-content">
-                    <h3>2020/2022</h3>
+                    <h3>2020 – 2022</h3>
                     <p>Enrolled in a preparatory class for entrance to top engineering schools, focusing on mathematics and physics.</p>
                 </div>
             </div>
@@ -82,277 +83,256 @@ Through my experience contributing to large-scale AI deployment in an enterprise
                     <p>Entered EPITA engineering school, specializing in networks, security, and telecommunications.</p>
                 </div>
             </div>
-    
             <div class="card">
-                <img src="img/sport.jpg" alt="sports">
+                <img src="img/sport.jpg" alt="Sports">
                 <div class="card-content">
-                    <p>An avid sports enthusiast, I competed in judo for 7 years, reaching a brown belt, and I continue to practice swimming, football, and basketball.</p>
+                    <p>An avid sports enthusiast, I competed in judo for 7 years reaching a brown belt, and continue to practice swimming, football, and basketball.</p>
                 </div>
             </div>
-    
             <div class="card">
-                <img src="img/cinéma.webp" alt="cinema">
+                <img src="img/cinéma.webp" alt="Cinema">
                 <div class="card-content">
                     <p>A passionate cinema lover, I am a big fan of films from all genres.</p>
                 </div>
             </div>
-    
             <div class="card">
-                <img src="img/piano.jpg" alt="piano">
+                <img src="img/piano.jpg" alt="Piano">
                 <div class="card-content">
                     <p>I studied piano at a conservatory for 5 years.</p>
                 </div>
             </div>
-    
-            
         </div>
     </section>
-    
-    </section>
+
     <section id="skills" class="reveal">
         <h2>Skills</h2>
         <div class="terminal">
             <div class="terminal-header">
-                <span class="terminal-title">Terminal - Samy</span>
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green-dot"></span>
+                <span class="terminal-title">Terminal — Samy</span>
             </div>
             <div class="terminal-body">
-                <pre><span class="terminal-ps1">Samy@DESKTOP:~$</span> hardskills
-                </pre>
+                <pre><span class="terminal-ps1">Samy@DESKTOP:~$</span> hardskills</pre>
                 <pre id="skills-list">
-    Networks & Telecommunications:
+Networks &amp; Telecommunications:
 
-        - IPv4/6, TCP/IP, OSI Model, LAN, WAN, OSPF, Ethernet, MPLS
-        - GSM, GPRS, EDGE, UMTS, 4G, 5G, VoIP
-        - Wireshark, VPN, Firewall, IPS, GNS3
-    
-    Programming & Development:
+    - IPv4/6, TCP/IP, OSI Model, LAN, WAN, OSPF, Ethernet, MPLS
+    - GSM, GPRS, EDGE, UMTS, 4G, 5G, VoIP
+    - Wireshark, VPN, Firewall, IPS, GNS3
 
-        - Languages: Python, R, C, C++, Java, JavaScript, SQL, Shell scripting, VBA
-        - Databases: SQL, NoSQL, PostgreSQL, MongoDB
-        - Web Technologies: HTML/CSS, Docker
-        - Data Science: NumPy, Matplotlib
-        - Tools: Visual Studio Code, IntelliJ IDEA
-    
-    DevOps & Version Control:
+Programming &amp; Development:
 
-        - Docker, Git, GitHub, GitLab
-    
-    Operating Systems & Office Tools:
+    - Languages: Python, R, C, C++, Java, JavaScript, SQL, Shell scripting, VBA
+    - Databases: SQL, NoSQL, PostgreSQL, MongoDB
+    - Web Technologies: HTML/CSS, Docker
+    - Data Science: NumPy, Matplotlib
+    - Tools: Visual Studio Code, IntelliJ IDEA
 
-        - Operating Systems: Linux, Windows
-        - Microsoft Office 365
-    
-    Certifications:
+DevOps &amp; Version Control:
 
-        - CCNA Certification 
-    </pre>
-                <pre><span class="terminal-ps1">Samy@DESKTOP:~$</span> softskills
-                </pre>
+    - Docker, Git, GitHub, GitLab
+
+Operating Systems &amp; Office Tools:
+
+    - Operating Systems: Linux, Windows
+    - Microsoft Office 365
+
+Certifications:
+
+    - CCNA Certification
+</pre>
+                <pre><span class="terminal-ps1">Samy@DESKTOP:~$</span> softskills</pre>
                 <pre id="softskills-list">
-    Leadership & Management:
+Leadership &amp; Management:
 
-        - Experience leading projects and teams
-    
-    Agile Methodologies:
+    - Experience leading projects and teams
 
-        - Proficient in Agile practices, including sprint planning and iterative development
-    
-    Communication:
+Agile Methodologies:
 
-        - Strong ability to convey technical concepts to diverse audiences
-        - Experience in promoting and representing organizations at events
-    
-    Teamwork:
+    - Proficient in Agile practices, including sprint planning and iterative development
 
-        - Effective collaboration with teams on complex projects
-    
-    Autonomy & Adaptability:
+Communication:
 
-        - Ability to work independently and adapt to new technologies
-    
-    Problem-solving & Pragmatism:
-    
-        - Focused on practical solutions for real-world challenges
-    </pre>
+    - Strong ability to convey technical concepts to diverse audiences
+    - Experience in promoting and representing organizations at events
+
+Teamwork:
+
+    - Effective collaboration with teams on complex projects
+
+Autonomy &amp; Adaptability:
+
+    - Ability to work independently and adapt to new technologies
+
+Problem-solving &amp; Pragmatism:
+
+    - Focused on practical solutions for real-world challenges
+</pre>
+                <pre><span class="terminal-ps1">Samy@DESKTOP:~$</span> <span class="terminal-cursor">█</span></pre>
             </div>
         </div>
     </section>
-    
-       
+
     <section id="projects" class="reveal">
         <h2>Projects</h2>
         <div class="expandable-cards-container">
             <div class="expandable-card" data-project="42sh">
-                <img src="img/42sh.png" alt="42sh: Details about Project 42sh">
+                <img src="img/42sh.png" alt="42sh">
                 <div class="card-content">
-                    <h3>Projet 42sh</h3>
-                    <p>Details about Project 42sh.</p>
+                    <h3>42sh</h3>
+                    <p>POSIX-compliant shell in C</p>
                 </div>
             </div>
             <div class="expandable-card" data-project="tiger">
-                <img src="img/tiger.jpg" alt="Tiger compiler: Details about Project Tiger">
+                <img src="img/tiger.jpg" alt="Tiger Compiler">
                 <div class="card-content">
-                    <h3>Projet TIGER Compiler</h3>
-                    <p> Details about Project Tiger.</p>
-
-                    </div>
+                    <h3>Tiger Compiler</h3>
+                    <p>Compiler for the Tiger language</p>
+                </div>
             </div>
             <div class="expandable-card" data-project="ping">
-                <img src="img/ping.jpg" alt="Ping: Details about Project Ping">
+                <img src="img/ping.jpg" alt="Ping IDE">
                 <div class="card-content">
-                    <h3>Projet JWS</h3>
-                    <p>Details about Project JWS.</p>
+                    <h3>Ping IDE</h3>
+                    <p>Integrated Development Environment</p>
                 </div>
             </div>
             <div class="expandable-card" data-project="httpd">
-                <img src="img/http.png" alt="HTTPd: Details about Project HTTPd">
+                <img src="img/http.png" alt="HTTPd">
                 <div class="card-content">
-                    <h3>Projet JWS</h3>
-                    <p>Details about Project JWS.</p>
+                    <h3>HTTPd</h3>
+                    <p>HTTP server in C</p>
                 </div>
             </div>
             <div class="expandable-card" data-project="PMS">
-                <img src="img/pms.png" alt="Projet multi-spé: Details about Project PMS">
+                <img src="img/pms.png" alt="PMS">
                 <div class="card-content">
-                    <h3>Projet JWS</h3>
-                    <p>Details about Project JWS.</p>
+                    <h3>PMS</h3>
+                    <p>Port management analysis</p>
                 </div>
             </div>
-
             <div class="expandable-card" data-project="Zoglu">
-                <img src="img/zoglu.png" alt="Zoglu: Details about Project Zoglu">
+                <img src="img/zoglu.png" alt="Zoglu">
                 <div class="card-content">
-                    <h3>Projet JWS</h3>
-                    <p>Details about Project JWS.</p>
+                    <h3>Zoglu</h3>
+                    <p>Network system redesign</p>
                 </div>
             </div>
             <div class="expandable-card" data-project="chess">
-                <img src="img/chess.jpg" alt="Chess: Details about Project Chess">
+                <img src="img/chess.jpg" alt="Chess">
                 <div class="card-content">
-                    <h3>Projet JWS</h3>
-                    <p>Details about Project JWS.</p>
+                    <h3>Chess Engine</h3>
+                    <p>Chess engine in C++/Python</p>
                 </div>
             </div>
-
             <div class="expandable-card" data-project="librubik">
-                <img src="img/rubik.png" alt="Librubik: Details about Project Librubik">
+                <img src="img/rubik.png" alt="Librubik">
                 <div class="card-content">
-                    <h3>Projet JWS</h3>
-                    <p>Details about Project JWS.</p>
+                    <h3>Librubik</h3>
+                    <p>Rubik's Cube library in C++</p>
                 </div>
             </div>
-
             <div class="expandable-card" data-project="ERO">
-                <img src="img/ero.jpg" alt="ERO: Details about Project ERO">
+                <img src="img/ero.jpg" alt="ERO">
                 <div class="card-content">
-                    <h3>Projet JWS</h3>
-                    <p>Details about Project JWS.</p>
+                    <h3>ERO</h3>
+                    <p>Snow removal optimization</p>
                 </div>
             </div>
-
             <div class="expandable-card" data-project="libbistro">
-                <img src="img/bistro.png" alt="Libbistro: Details about Project Libbistro">
+                <img src="img/bistro.png" alt="Libbistro">
                 <div class="card-content">
-                    <h3>Projet JWS</h3>
-                    <p>Details about Project JWS.</p>
+                    <h3>Libbistro</h3>
+                    <p>Arbitrary precision arithmetic</p>
                 </div>
             </div>
-
-            
-
             <div class="expandable-card" data-project="vorace">
-                <img src="img/vorace.jpg" alt="Vorace: Details about Project Vorace">
+                <img src="img/vorace.jpg" alt="Vorace">
                 <div class="card-content">
-                    <h3>Projet JWS</h3>
-                    <p>Details about Project JWS.</p>
+                    <h3>Vorace</h3>
+                    <p>Web scraper in JavaScript</p>
                 </div>
             </div>
-
             <div class="expandable-card" data-project="jws">
-                <img src="img/jws.jpg" alt="Java Web Services: Details about Project JWS">
+                <img src="img/jws.jpg" alt="Java Web Services">
                 <div class="card-content">
-                    <h3>Projet JWS</h3>
-                    <p>Details about Project JWS.</p>
+                    <h3>Java Web Services</h3>
+                    <p>Bomberman game backend</p>
                 </div>
             </div>
-
-
             <div class="expandable-card" data-project="Malloc">
-                <img src="img/malloc.png" alt="Malloc: Details about Project Malloc">
+                <img src="img/malloc.png" alt="Malloc">
                 <div class="card-content">
-                    <h3>Projet JWS</h3>
-                    <p>Details about Project JWS.</p>
+                    <h3>Malloc</h3>
+                    <p>Custom memory allocator in C</p>
                 </div>
             </div>
             <div class="expandable-card" data-project="Boot Camps">
-                <img src="img/bootcamp.jpg" alt="Boot Camps: Details about Project Boot Camps">
+                <img src="img/bootcamp.jpg" alt="Boot Camps">
                 <div class="card-content">
-                    <h3>Projet JWS</h3>
-                    <p>Details about Project JWS.</p>
+                    <h3>Boot Camps</h3>
+                    <p>Intensive programming training</p>
                 </div>
             </div>
-
             <div class="expandable-card" data-project="Myfind">
-                <img src="img/find.png" alt="Myfind: Details about Project Myfind">
+                <img src="img/find.png" alt="Myfind">
                 <div class="card-content">
-                    <h3>Projet JWS</h3>
-                    <p>Details about Project JWS.</p>
+                    <h3>Myfind</h3>
+                    <p>Custom find command in C</p>
                 </div>
-           
-
-            
+            </div>
         </div>
     </section>
 
-
-<div id="projectModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-image" id="modalImage" alt="Project Image">
-    <div class="modal-details">
-        <h3 id="modalTitle">Project Title</h3>
-        
-        <div class="detail-section">
-            <h4>Objective:</h4>
-            <p id="modalObjective">Project objective will be displayed here.</p>
-        </div>
-        
-        <div class="detail-section">
-            <h4>Role:</h4>
-            <p id="modalRole">Project role will be displayed here.</p>
-        </div>
-        
-        <div class="detail-section">
-            <h4>Details:</h4>
-            <p id="modalDescription">Project details will be displayed here.</p>
-        </div>
-        
-        <div class="detail-section">
-            <h4>Languages and Tools:</h4>
-            <p id="modalLanguages">Languages and tools used in the project will be displayed here.</p>
+    <div id="projectModal" class="modal" role="dialog" aria-modal="true">
+        <button class="close" aria-label="Close modal">&times;</button>
+        <img class="modal-image" id="modalImage" alt="Project Image">
+        <div class="modal-details">
+            <h3 id="modalTitle">Project Title</h3>
+            <div class="detail-section">
+                <h4>Objective</h4>
+                <p id="modalObjective"></p>
+            </div>
+            <div class="detail-section">
+                <h4>Role</h4>
+                <p id="modalRole"></p>
+            </div>
+            <div class="detail-section">
+                <h4>Details</h4>
+                <p id="modalDescription"></p>
+            </div>
+            <div class="detail-section">
+                <h4>Languages &amp; Tools</h4>
+                <p id="modalLanguages"></p>
+            </div>
         </div>
     </div>
-</div>
-
-
-
 
     <section id="contact" class="reveal">
         <h2>Contact</h2>
-        <p>Feel free to reach out to me for any inquiries or collaborations.</p>
+        <p class="contact-intro">Feel free to reach out for any inquiries or collaborations.</p>
         <div class="contactlogo">
-            <a href="mailto: msbengriche@gmail.com"><img src="img/mail.png" alt="Mail"></a>
-            <a href="tel:+33 6 15 21 03 00"><img src="img/phone.png" alt="Phone"></a>
-            <a href="https://www.linkedin.com/in/samy-bengriche-63324a268/" target="_blank"><img src="img/linkedin.png" alt="Linkedin"></a>
+            <a href="mailto:msbengriche@gmail.com" class="contact-link" title="Email">
+                <img src="img/mail.png" alt="Email">
+                <span>Email</span>
+            </a>
+            <a href="tel:+33615210300" class="contact-link" title="Phone">
+                <img src="img/phone.png" alt="Phone">
+                <span>Phone</span>
+            </a>
+            <a href="https://www.linkedin.com/in/samy-bengriche-63324a268/" target="_blank" rel="noopener" class="contact-link" title="LinkedIn">
+                <img src="img/linkedin.png" alt="LinkedIn">
+                <span>LinkedIn</span>
+            </a>
         </div>
     </section>
+
     <footer>
-        <p>&copy; 2025 Samy. All rights reserved.</p>
+        <p>&copy; 2025 Samy Bengriche. All rights reserved.</p>
     </footer>
+
     <script src="script.js"></script>
-    <div id="projectModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div id="caption"></div>
-    </div>
 </body>
 </html>
