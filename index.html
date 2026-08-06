@@ -1,337 +1,768 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/TCOM_Logo.png" type="image/png">
-    <title>Samy Bengriche — Portfolio</title>
-    <meta name="description" content="Samy Bengriche — Network, Security & Telecom Engineer. EPITA graduate specializing in cybersecurity, networks and AI.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Old+English+Text+MT&display=swap" rel="stylesheet">
-</head>
-<body id="top">
-    <div id="progress-bar"></div>
-    <canvas id="matrixCanvas"></canvas>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Samy Bengriche — Generative AI & Enterprise Technology</title>
+    <meta name="description" content="Samy Bengriche — Generative AI & Enterprise Technology Specialist. EPITA graduate with hands-on experience in AI adoption, data analytics, automation, and digital transformation." />
+    
+    <!-- Favicon TCOM -->
+    <link rel="icon" href="img/TCOM_Logo.png" type="image/png" />
 
-    <nav>
-        <a href="#top" class="logo hide-on-mobile">Samy</a>
-        <div class="burger" aria-label="Toggle menu">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#parcours">Journey</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="toggle-theme-container">
-            <a href="#" class="toggle-theme" aria-label="Toggle theme">🌙</a>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- ===== PROGRESS BAR ===== -->
+    <div id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <!-- ===== BACK TO TOP BUTTON ===== -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="#home" class="logo" aria-label="Home">SB</a>
+
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#home" role="menuitem" class="active">Home</a></li>
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
+                <li role="none"><a href="#experience" role="menuitem">Experience</a></li>
+                <li role="none"><a href="#skills" role="menuitem">Skills</a></li>
+                <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="burger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <section id="home" class="home-section">
-        <div class="intro reveal">
-            <p class="intro-greeting">Hi, I'm</p>
-            <h1>Samy.</h1>
-            <h2 id="typing-text"></h2>
+    <!-- ===== HOME / HERO ===== -->
+    <section id="home" class="section-hero">
+        <div class="hero-container" id="heroContainer">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Generative AI · Data · Automation
+                </div>
+                <h1 class="hero-title">
+                    <span class="hero-title-line">Samy</span>
+                    <span class="hero-title-line hero-title-line-accent">Bengriche.</span>
+                </h1>
+                <p class="hero-subtitle" id="hero-typing"></p>
+                <p class="hero-description">
+                    I design and deliver AI adoption programs, build data-driven dashboards, 
+                    and automate processes to help organizations unlock value from generative AI 
+                    and modern enterprise technologies.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="CV_BENGRICHE_Samy.pdf" class="btn-primary" target="_blank">
+                        View Resume
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg>
+                    </a>
+                    <a href="#projects" class="btn-secondary">See my work</a>
+                </div>
+                <div class="hero-tags">
+                    <span>#GenerativeAI</span>
+                    <span>#AIAdoption</span>
+                    <span>#DataAnalytics</span>
+                    <span>#Automation</span>
+                    <span>#EnterpriseTech</span>
+                </div>
+            </div>
 
-            <div class="social-links">
-                <a href="CV_BENGRICHE_Samy_GP.pdf" class="cv-button" target="_blank">My Resume</a>
-                <a href="https://www.linkedin.com/in/samy-bengriche-63324a268/" class="cv-button linkedin-btn" target="_blank">LinkedIn</a>
+            <div class="hero-visual">
+                <div class="hero-image-wrapper" id="heroImageWrapper">
+                    <img src="img/image.jpg" alt="Samy Bengriche — AI & Enterprise Technology Specialist" class="hero-image" loading="eager" />
+                    <div class="hero-image-glow"></div>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">15k+</span>
+                        <span class="hero-stat-label">Users Onboarded</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">50+</span>
+                        <span class="hero-stat-label">Training Sessions</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">89%</span>
+                        <span class="hero-stat-label">Adoption Rate</span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="profile-picture reveal">
-            <img src="img/image.jpg" alt="Samy Bengriche">
-        </div>
-    </section>
 
-    <section id="about" class="reveal">
-        <h2>About me</h2>
-        <div class="aboutme">
-            <p>Curious by nature and methodical by training, I see technology as both a system to understand and a tool to improve the way we work and communicate. My specialization in networks, cybersecurity, and telecommunications at EPITA has given me a strong foundation in secure architectures, network protocols, and system resilience.
-
-Through my experience contributing to large-scale AI deployment in an enterprise environment, I have worked on generative AI adoption, prompt engineering strategies, and usage monitoring. Combining this hands-on exposure to AI systems with a solid background in network and security fundamentals, I approach technological innovation with both performance and robustness in mind.</p>
-        </div>
-    </section>
-
-    <section id="parcours" class="reveal">
-        <h2>Journey</h2>
-        <div class="card-container">
-            <div class="card">
-                <img src="img/cdg.jpg" alt="Baccalauréat">
-                <div class="card-content">
-                    <h3>2020</h3>
-                    <p>Obtained a Scientific Baccalaureate with honors.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/langevin.jfif" alt="Preparatory Class">
-                <div class="card-content">
-                    <h3>2020 – 2022</h3>
-                    <p>Enrolled in a preparatory class for entrance to top engineering schools, focusing on mathematics and physics.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/Epita.png" alt="EPITA">
-                <div class="card-content">
-                    <h3>2022</h3>
-                    <p>Entered EPITA engineering school, specializing in networks, security, and telecommunications.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/sport.jpg" alt="Sports">
-                <div class="card-content">
-                    <p>An avid sports enthusiast, I competed in judo for 7 years reaching a brown belt, and continue to practice swimming, football, and basketball.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/cinéma.webp" alt="Cinema">
-                <div class="card-content">
-                    <p>A passionate cinema lover, I am a big fan of films from all genres.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/piano.jpg" alt="Piano">
-                <div class="card-content">
-                    <p>I studied piano at a conservatory for 5 years.</p>
-                </div>
-            </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <section id="skills" class="reveal">
-        <h2>Skills</h2>
-        <div class="terminal">
-            <div class="terminal-header">
-                <span class="terminal-dot red"></span>
-                <span class="terminal-dot yellow"></span>
-                <span class="terminal-dot green-dot"></span>
-                <span class="terminal-title">Terminal — Samy</span>
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section-about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">About</span>
+                <h2>Bridging AI, data &amp; operations</h2>
             </div>
-            <div class="terminal-body">
-                <pre><span class="terminal-ps1">Samy@DESKTOP:~$</span> hardskills</pre>
-                <pre id="skills-list">
-Networks &amp; Telecommunications:
 
-    - IPv4/6, TCP/IP, OSI Model, LAN, WAN, OSPF, Ethernet, MPLS
-    - GSM, GPRS, EDGE, UMTS, 4G, 5G, VoIP
-    - Wireshark, VPN, Firewall, IPS, GNS3
-
-Programming &amp; Development:
-
-    - Languages: Python, R, C, C++, Java, JavaScript, SQL, Shell scripting, VBA
-    - Databases: SQL, NoSQL, PostgreSQL, MongoDB
-    - Web Technologies: HTML/CSS, Docker
-    - Data Science: NumPy, Matplotlib
-    - Tools: Visual Studio Code, IntelliJ IDEA
-
-DevOps &amp; Version Control:
-
-    - Docker, Git, GitHub, GitLab
-
-Operating Systems &amp; Office Tools:
-
-    - Operating Systems: Linux, Windows
-    - Microsoft Office 365
-
-Certifications:
-
-    - CCNA Certification
-</pre>
-                <pre><span class="terminal-ps1">Samy@DESKTOP:~$</span> softskills</pre>
-                <pre id="softskills-list">
-Leadership &amp; Management:
-
-    - Experience leading projects and teams
-
-Agile Methodologies:
-
-    - Proficient in Agile practices, including sprint planning and iterative development
-
-Communication:
-
-    - Strong ability to convey technical concepts to diverse audiences
-    - Experience in promoting and representing organizations at events
-
-Teamwork:
-
-    - Effective collaboration with teams on complex projects
-
-Autonomy &amp; Adaptability:
-
-    - Ability to work independently and adapt to new technologies
-
-Problem-solving &amp; Pragmatism:
-
-    - Focused on practical solutions for real-world challenges
-</pre>
-                <pre><span class="terminal-ps1">Samy@DESKTOP:~$</span> <span class="terminal-cursor">█</span></pre>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="reveal">
-        <h2>Projects</h2>
-        <div class="expandable-cards-container">
-            <div class="expandable-card" data-project="42sh">
-                <img src="img/42sh.png" alt="42sh">
-                <div class="card-content">
-                    <h3>42sh</h3>
-                    <p>POSIX-compliant shell in C</p>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I am an engineer with a deep focus on generative AI adoption, data analytics, and process automation. 
+                        My expertise lies in taking emerging technologies — from AI assistants to enterprise platforms — 
+                        and turning them into measurable business value through enablement, training, and data-driven decision-making.
+                    </p>
+                    <p>
+                        With hands-on experience deploying AI to over 15,000 users, building automated data pipelines for 
+                        adoption tracking, and delivering training to diverse global audiences, I bridge the gap between 
+                        technical possibilities and real-world impact. I bring a robust, pragmatic approach shaped by my 
+                        engineering background in networks, security, and telecommunications at EPITA.
+                    </p>
                 </div>
-            </div>
-            <div class="expandable-card" data-project="tiger">
-                <img src="img/tiger.jpg" alt="Tiger Compiler">
-                <div class="card-content">
-                    <h3>Tiger Compiler</h3>
-                    <p>Compiler for the Tiger language</p>
-                </div>
-            </div>
-            <div class="expandable-card" data-project="ping">
-                <img src="img/ping.jpg" alt="Ping IDE">
-                <div class="card-content">
-                    <h3>Ping IDE</h3>
-                    <p>Integrated Development Environment</p>
-                </div>
-            </div>
-            <div class="expandable-card" data-project="httpd">
-                <img src="img/http.png" alt="HTTPd">
-                <div class="card-content">
-                    <h3>HTTPd</h3>
-                    <p>HTTP server in C</p>
-                </div>
-            </div>
-            <div class="expandable-card" data-project="PMS">
-                <img src="img/pms.png" alt="PMS">
-                <div class="card-content">
-                    <h3>PMS</h3>
-                    <p>Port management analysis</p>
-                </div>
-            </div>
-            <div class="expandable-card" data-project="Zoglu">
-                <img src="img/zoglu.png" alt="Zoglu">
-                <div class="card-content">
-                    <h3>Zoglu</h3>
-                    <p>Network system redesign</p>
-                </div>
-            </div>
-            <div class="expandable-card" data-project="chess">
-                <img src="img/chess.jpg" alt="Chess">
-                <div class="card-content">
-                    <h3>Chess Engine</h3>
-                    <p>Chess engine in C++/Python</p>
-                </div>
-            </div>
-            <div class="expandable-card" data-project="librubik">
-                <img src="img/rubik.png" alt="Librubik">
-                <div class="card-content">
-                    <h3>Librubik</h3>
-                    <p>Rubik's Cube library in C++</p>
-                </div>
-            </div>
-            <div class="expandable-card" data-project="ERO">
-                <img src="img/ero.jpg" alt="ERO">
-                <div class="card-content">
-                    <h3>ERO</h3>
-                    <p>Snow removal optimization</p>
-                </div>
-            </div>
-            <div class="expandable-card" data-project="libbistro">
-                <img src="img/bistro.png" alt="Libbistro">
-                <div class="card-content">
-                    <h3>Libbistro</h3>
-                    <p>Arbitrary precision arithmetic</p>
-                </div>
-            </div>
-            <div class="expandable-card" data-project="vorace">
-                <img src="img/vorace.jpg" alt="Vorace">
-                <div class="card-content">
-                    <h3>Vorace</h3>
-                    <p>Web scraper in JavaScript</p>
-                </div>
-            </div>
-            <div class="expandable-card" data-project="jws">
-                <img src="img/jws.jpg" alt="Java Web Services">
-                <div class="card-content">
-                    <h3>Java Web Services</h3>
-                    <p>Bomberman game backend</p>
-                </div>
-            </div>
-            <div class="expandable-card" data-project="Malloc">
-                <img src="img/malloc.png" alt="Malloc">
-                <div class="card-content">
-                    <h3>Malloc</h3>
-                    <p>Custom memory allocator in C</p>
-                </div>
-            </div>
-            <div class="expandable-card" data-project="Boot Camps">
-                <img src="img/bootcamp.jpg" alt="Boot Camps">
-                <div class="card-content">
-                    <h3>Boot Camps</h3>
-                    <p>Intensive programming training</p>
-                </div>
-            </div>
-            <div class="expandable-card" data-project="Myfind">
-                <img src="img/find.png" alt="Myfind">
-                <div class="card-content">
-                    <h3>Myfind</h3>
-                    <p>Custom find command in C</p>
+
+                <div class="about-highlights">
+                    <div class="about-highlight">
+                        <span class="about-highlight-icon">🧠</span>
+                        <div>
+                            <h4>Core Focus</h4>
+                            <p>Generative AI · Adoption · Enablement</p>
+                        </div>
+                    </div>
+                    <div class="about-highlight">
+                        <span class="about-highlight-icon">📊</span>
+                        <div>
+                            <h4>Data &amp; Analytics</h4>
+                            <p>KPI Design · Dashboards · VBA</p>
+                        </div>
+                    </div>
+                    <div class="about-highlight">
+                        <span class="about-highlight-icon">⚙️</span>
+                        <div>
+                            <h4>Automation</h4>
+                            <p>Salesforce Flows · Scripting · Pipelines</p>
+                        </div>
+                    </div>
+                    <div class="about-highlight">
+                        <span class="about-highlight-icon">🌐</span>
+                        <div>
+                            <h4>Networks &amp; Security</h4>
+                            <p>TCP/IP · OSPF · VPN · Firewalls · MPLS</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div id="projectModal" class="modal" role="dialog" aria-modal="true">
-        <button class="close" aria-label="Close modal">&times;</button>
-        <img class="modal-image" id="modalImage" alt="Project Image">
-        <div class="modal-details">
-            <h3 id="modalTitle">Project Title</h3>
-            <div class="detail-section">
-                <h4>Objective</h4>
-                <p id="modalObjective"></p>
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="section-experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Experience</span>
+                <h2>Professional journey</h2>
             </div>
-            <div class="detail-section">
-                <h4>Role</h4>
-                <p id="modalRole"></p>
+
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-company">
+                                <span class="timeline-company-name">Wavestone</span>
+                                <span class="timeline-company-badge">AI &amp; Data</span>
+                            </div>
+                            <span class="timeline-date">Jul 2025 – Jan 2026</span>
+                        </div>
+                        <h3 class="timeline-role">AI Consultant</h3>
+                        <p class="timeline-location">Paris, France</p>
+                        <ul class="timeline-details">
+                            <li>Led the large-scale deployment of enterprise AI tools for 15,000 users, identifying use cases with business teams and driving adoption.</li>
+                            <li>Designed and delivered training sessions on generative AI to diverse audiences (finance, engineering, IT, management) — often 100+ participants, some in English.</li>
+                            <li>Developed prompt engineering strategies and internal guides for effective AI usage, tracking adoption with custom dashboards.</li>
+                            <li>Built automated data processing pipelines (VBA) and monthly executive dashboards using Viva Insights, presented to steering committees.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Generative AI</span>
+                            <span>Change Management</span>
+                            <span>Data Analytics</span>
+                            <span>VBA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-company">
+                                <span class="timeline-company-name">Saas.group Crosstalent</span>
+                                <span class="timeline-company-badge">Product &amp; Automation</span>
+                            </div>
+                            <span class="timeline-date">Feb 2025 – Jul 2025</span>
+                        </div>
+                        <h3 class="timeline-role">Software Engineer – Product Management</h3>
+                        <p class="timeline-location">Paris, France</p>
+                        <ul class="timeline-details">
+                            <li>Designed and built the new Salesforce demonstration org, adopted as the official reference for sales presentations and client integrations.</li>
+                            <li>Developed and streamlined HR business processes using Salesforce Flow Builder — onboarding, status management, access attribution — tested and validated in sandbox.</li>
+                            <li>Authored functional documentation and a tracking dashboard ensuring long-term maintainability of deliverables.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Salesforce</span>
+                            <span>Flow Builder</span>
+                            <span>Process Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-company">
+                                <span class="timeline-company-name">Groupe IONIS</span>
+                                <span class="timeline-company-badge">Infrastructure</span>
+                            </div>
+                            <span class="timeline-date">2022 – 2024</span>
+                        </div>
+                        <h3 class="timeline-role">IT Support Technician</h3>
+                        <p class="timeline-location">Paris, France</p>
+                        <ul class="timeline-details">
+                            <li>Provided IT support for staff and students, managing and maintaining equipment and systems.</li>
+                            <li>Participated in the configuration and improvement of local network infrastructure including Wi-Fi, workstations, and access systems.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>IT Support</span>
+                            <span>Network Infrastructure</span>
+                            <span>Hardware</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="detail-section">
-                <h4>Details</h4>
-                <p id="modalDescription"></p>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="section-skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Skills</span>
+                <h2>Core expertise</h2>
             </div>
-            <div class="detail-section">
-                <h4>Languages &amp; Tools</h4>
-                <p id="modalLanguages"></p>
+
+            <div class="skills-grid">
+                <!-- AI & Generative AI -->
+                <div class="skills-category">
+                    <h3 class="skills-category-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 3.5 19.3 9.98 9.98 0 0 1-7 0A10 10 0 0 1 12 2z"/><path d="M12 2v20"/><path d="M2 12h20"/></svg>
+                        AI &amp; Generative AI
+                    </h3>
+                    <div class="skills-badges">
+                        <span>Generative AI</span>
+                        <span>Prompt Engineering</span>
+                        <span>AI Adoption Strategy</span>
+                        <span>AI Training &amp; Enablement</span>
+                        <span>Use Case Identification</span>
+                        <span>Enterprise AI Tools</span>
+                    </div>
+                </div>
+
+                <!-- Data & Analytics -->
+                <div class="skills-category">
+                    <h3 class="skills-category-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"/><path d="M6 12h4"/><path d="M10 8v8"/><path d="M14 10v6"/><path d="M18 6v10"/></svg>
+                        Data &amp; Analytics
+                    </h3>
+                    <div class="skills-badges">
+                        <span>VBA</span>
+                        <span>Excel / Power BI</span>
+                        <span>SQL / NoSQL</span>
+                        <span>PostgreSQL</span>
+                        <span>MongoDB</span>
+                        <span>Data Visualization</span>
+                        <span>KPI Tracking</span>
+                    </div>
+                </div>
+
+                <!-- Automation & Development -->
+                <div class="skills-category">
+                    <h3 class="skills-category-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        Automation &amp; Development
+                    </h3>
+                    <div class="skills-badges">
+                        <span>Python</span>
+                        <span>Java</span>
+                        <span>C / C++</span>
+                        <span>SQL</span>
+                        <span>Shell (bash)</span>
+                        <span>Salesforce Flow Builder</span>
+                    </div>
+                </div>
+
+                <!-- Cloud & Modern Workplace -->
+                <div class="skills-category">
+                    <h3 class="skills-category-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg>
+                        Cloud &amp; Modern Workplace
+                    </h3>
+                    <div class="skills-badges">
+                        <span>Microsoft 365</span>
+                        <span>Docker</span>
+                        <span>Azure / AWS</span>
+                        <span>Linux</span>
+                        <span>Git / GitHub</span>
+                    </div>
+                </div>
+
+                <!-- Networks & Cybersecurity (NEW) -->
+                <div class="skills-category">
+                    <h3 class="skills-category-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H5.78a1.65 1.65 0 0 0-1.51 1 1.65 1.65 0 0 0 .33 1.82l.03.03A2 2 0 0 0 5.8 16h12.4a2 2 0 0 0 1.17-.97z"/></svg>
+                        Networks &amp; Cybersecurity
+                    </h3>
+                    <div class="skills-badges">
+                        <span>IPv4/IPv6</span>
+                        <span>TCP/IP</span>
+                        <span>OSPF</span>
+                        <span>VPN</span>
+                        <span>Firewalls</span>
+                        <span>MPLS</span>
+                        <span>GNS3</span>
+                        <span>Wireshark</span>
+                        <span>Security Best Practices</span>
+                    </div>
+                </div>
+
+                <!-- Methodologies & Languages -->
+                <div class="skills-category skills-category-methods">
+                    <h3 class="skills-category-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                        Methodologies &amp; Languages
+                    </h3>
+                    <div class="skills-badges">
+                        <span>Agile / Scrum</span>
+                        <span>Teamwork</span>
+                        <span>French (Native)</span>
+                        <span>English (C1)</span>
+                        <span>Spanish (B2)</span>
+                    </div>
+                </div>
+
+                <!-- Certifications (full width) -->
+                <div class="skills-category skills-category-certifications">
+                    <h3 class="skills-category-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        Certifications
+                    </h3>
+                    <div class="skills-badges">
+                        <span>CCNA 1: Intro to Networks</span>
+                        <span>CCNA 2: Switching &amp; Routing</span>
+                        <span>CCNA 3: Enterprise Networks &amp; Security</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section-projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Projects</span>
+                <h2>Selected work</h2>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-project="42sh">
+                    <div class="project-card-image">
+                        <img src="img/42sh.png" alt="42sh — POSIX Shell" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">42sh</h3>
+                        <p class="project-card-summary">POSIX-compliant shell in C with comprehensive test suite.</p>
+                        <div class="project-card-tech">
+                            <span>C</span>
+                            <span>POSIX</span>
+                            <span>Shell</span>
+                        </div>
+                        <button class="project-card-btn" data-project="42sh">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-project="tiger">
+                    <div class="project-card-image">
+                        <img src="img/tiger.jpg" alt="Tiger Compiler" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">Tiger Compiler</h3>
+                        <p class="project-card-summary">Full compiler for the Tiger programming language.</p>
+                        <div class="project-card-tech">
+                            <span>C++</span>
+                            <span>Flex</span>
+                            <span>Bison</span>
+                            <span>LLVM</span>
+                        </div>
+                        <button class="project-card-btn" data-project="tiger">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-project="ping">
+                    <div class="project-card-image">
+                        <img src="img/ping.jpg" alt="Ping IDE" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">Ping IDE</h3>
+                        <p class="project-card-summary">Integrated Development Environment with syntax highlighting and code completion.</p>
+                        <div class="project-card-tech">
+                            <span>Java</span>
+                            <span>JavaScript</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+                        <button class="project-card-btn" data-project="ping">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-project="httpd">
+                    <div class="project-card-image">
+                        <img src="img/http.png" alt="HTTPd" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">HTTPd</h3>
+                        <p class="project-card-summary">HTTP server in C with concurrent client handling.</p>
+                        <div class="project-card-tech">
+                            <span>C</span>
+                            <span>Socket Programming</span>
+                        </div>
+                        <button class="project-card-btn" data-project="httpd">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-project="PMS">
+                    <div class="project-card-image">
+                        <img src="img/pms.png" alt="PMS" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">PMS</h3>
+                        <p class="project-card-summary">Port management financial and material resource analysis.</p>
+                        <div class="project-card-tech">
+                            <span>Analysis</span>
+                            <span>Optimization</span>
+                        </div>
+                        <button class="project-card-btn" data-project="PMS">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-project="Zoglu">
+                    <div class="project-card-image">
+                        <img src="img/zoglu.png" alt="Zoglu" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">Zoglu</h3>
+                        <p class="project-card-summary">Network system redesign for a company.</p>
+                        <div class="project-card-tech">
+                            <span>Network Design</span>
+                            <span>Project Management</span>
+                        </div>
+                        <button class="project-card-btn" data-project="Zoglu">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card" data-project="chess">
+                    <div class="project-card-image">
+                        <img src="img/chess.jpg" alt="Chess Engine" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">Chess Engine</h3>
+                        <p class="project-card-summary">Chess engine with move simulation and AI opponent.</p>
+                        <div class="project-card-tech">
+                            <span>C++</span>
+                            <span>Python</span>
+                        </div>
+                        <button class="project-card-btn" data-project="chess">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card" data-project="librubik">
+                    <div class="project-card-image">
+                        <img src="img/rubik.png" alt="Librubik" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">Librubik</h3>
+                        <p class="project-card-summary">Rubik's Cube manipulation library in C++.</p>
+                        <div class="project-card-tech">
+                            <span>C++</span>
+                        </div>
+                        <button class="project-card-btn" data-project="librubik">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 9 -->
+                <div class="project-card" data-project="ERO">
+                    <div class="project-card-image">
+                        <img src="img/ero.jpg" alt="ERO" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">ERO</h3>
+                        <p class="project-card-summary">Snow removal route optimization in Python.</p>
+                        <div class="project-card-tech">
+                            <span>Python</span>
+                            <span>Optimization</span>
+                        </div>
+                        <button class="project-card-btn" data-project="ERO">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 10 -->
+                <div class="project-card" data-project="libbistro">
+                    <div class="project-card-image">
+                        <img src="img/bistro.png" alt="Libbistro" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">Libbistro</h3>
+                        <p class="project-card-summary">Arbitrary precision arithmetic in any base.</p>
+                        <div class="project-card-tech">
+                            <span>C++</span>
+                            <span>Templates</span>
+                        </div>
+                        <button class="project-card-btn" data-project="libbistro">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 11 -->
+                <div class="project-card" data-project="vorace">
+                    <div class="project-card-image">
+                        <img src="img/vorace.jpg" alt="Vorace" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">Vorace</h3>
+                        <p class="project-card-summary">Web scraper for e-commerce data extraction.</p>
+                        <div class="project-card-tech">
+                            <span>JavaScript</span>
+                        </div>
+                        <button class="project-card-btn" data-project="vorace">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 12 -->
+                <div class="project-card" data-project="jws">
+                    <div class="project-card-image">
+                        <img src="img/jws.jpg" alt="Java Web Services" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">Java Web Services</h3>
+                        <p class="project-card-summary">Bomberman game backend.</p>
+                        <div class="project-card-tech">
+                            <span>Java</span>
+                        </div>
+                        <button class="project-card-btn" data-project="jws">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 13 -->
+                <div class="project-card" data-project="Malloc">
+                    <div class="project-card-image">
+                        <img src="img/malloc.png" alt="Malloc" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">Malloc</h3>
+                        <p class="project-card-summary">Custom memory allocator in C.</p>
+                        <div class="project-card-tech">
+                            <span>C</span>
+                            <span>Memory Management</span>
+                        </div>
+                        <button class="project-card-btn" data-project="Malloc">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 14 -->
+                <div class="project-card" data-project="Boot Camps">
+                    <div class="project-card-image">
+                        <img src="img/bootcamp.jpg" alt="Boot Camps" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">Boot Camps</h3>
+                        <p class="project-card-summary">Intensive programming training covering multiple languages.</p>
+                        <div class="project-card-tech">
+                            <span>JavaScript</span>
+                            <span>SQL</span>
+                            <span>Java</span>
+                            <span>C</span>
+                            <span>C++</span>
+                        </div>
+                        <button class="project-card-btn" data-project="Boot Camps">View details</button>
+                    </div>
+                </div>
+
+                <!-- Project 15 -->
+                <div class="project-card" data-project="Myfind">
+                    <div class="project-card-image">
+                        <img src="img/find.png" alt="Myfind" loading="lazy" />
+                        <div class="project-card-overlay">
+                            <span class="project-card-view">View case study →</span>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <h3 class="project-card-title">Myfind</h3>
+                        <p class="project-card-summary">Custom find command in C with options.</p>
+                        <div class="project-card-tech">
+                            <span>C</span>
+                        </div>
+                        <button class="project-card-btn" data-project="Myfind">View details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section-contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Contact</span>
+                <h2>Let's connect</h2>
+            </div>
+
+            <div class="contact-content">
+                <p class="contact-text">
+                    I'm always open to discussing new opportunities, collaborations, or just having a conversation about technology.
+                </p>
+
+                <div class="contact-actions">
+                    <a href="mailto:msbengriche@gmail.com" class="btn-primary btn-primary-large">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        msbengriche@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/samy-bengriche-63324a268/" class="btn-secondary btn-secondary-large" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="tel:+33615210300" class="btn-secondary btn-secondary-large">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        +33 6 15 21 03 00
+                    </a>
+                </div>
+
+                <div class="contact-extra">
+                    <a href="CV_BENGRICHE_Samy.pdf" class="contact-resume" target="_blank">
+                        Download my resume →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <span class="footer-name">Samy Bengriche</span>
+                <span class="footer-divider">·</span>
+                <span class="footer-year">2026</span>
+                <span class="footer-divider">·</span>
+                <span class="footer-credit">Generative AI · Data · Automation</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== PROJECT MODAL ===== -->
+    <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" aria-label="Close modal">✕</button>
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" src="" alt="Project image" loading="lazy" />
+            <div class="modal-body">
+                <h3 id="modalTitle" class="modal-title">Project Title</h3>
+                <div class="modal-section">
+                    <h4 class="modal-section-title">Objective</h4>
+                    <p id="modalObjective" class="modal-text"></p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="modal-section-title">Role</h4>
+                    <p id="modalRole" class="modal-text"></p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="modal-section-title">Details</h4>
+                    <p id="modalDescription" class="modal-text"></p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="modal-section-title">Technologies</h4>
+                    <p id="modalLanguages" class="modal-text modal-tech"></p>
+                </div>
             </div>
         </div>
     </div>
-
-    <section id="contact" class="reveal">
-        <h2>Contact</h2>
-        <p class="contact-intro">Feel free to reach out for any inquiries or collaborations.</p>
-        <div class="contactlogo">
-            <a href="mailto:msbengriche@gmail.com" class="contact-link" title="Email">
-                <img src="img/mail.png" alt="Email">
-                <span>Email</span>
-            </a>
-            <a href="tel:+33615210300" class="contact-link" title="Phone">
-                <img src="img/phone.png" alt="Phone">
-                <span>Phone</span>
-            </a>
-            <a href="https://www.linkedin.com/in/samy-bengriche-63324a268/" target="_blank" rel="noopener" class="contact-link" title="LinkedIn">
-                <img src="img/linkedin.png" alt="LinkedIn">
-                <span>LinkedIn</span>
-            </a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Samy Bengriche. All rights reserved.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
