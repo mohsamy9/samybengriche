@@ -36,27 +36,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 2. NAVBAR
+    // 2. NAVBAR — version améliorée (burger + overlay)
     // ==========================================
     const navbar = document.getElementById('navbar');
     const burger = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');
+    const navOverlay = document.getElementById('navOverlay');
     const navAnchors = document.querySelectorAll('.nav-links a');
 
-    // Burger toggle
-    burger.addEventListener('click', () => {
-        const isOpen = burger.classList.toggle('open');
-        navLinks.classList.toggle('open');
+    // Fonction pour ouvrir/fermer le menu
+    const toggleMenu = (forceState) => {
+        const isOpen = forceState !== undefined ? forceState : !burger.classList.contains('open');
+        burger.classList.toggle('open', isOpen);
+        navLinks.classList.toggle('open', isOpen);
+        navOverlay.classList.toggle('open', isOpen);
         burger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+
+    // Click sur le burger
+    burger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
     });
 
-    // Close burger on link click (mobile)
+    // Click sur l'overlay → fermeture
+    navOverlay.addEventListener('click', () => {
+        if (burger.classList.contains('open')) {
+            toggleMenu(false);
+        }
+    });
+
+    // Fermeture sur lien cliqué (mobile)
     navAnchors.forEach(anchor => {
         anchor.addEventListener('click', () => {
-            burger.classList.remove('open');
-            navLinks.classList.remove('open');
-            burger.setAttribute('aria-expanded', 'false');
+            if (window.innerWidth <= 768 && burger.classList.contains('open')) {
+                toggleMenu(false);
+            }
         });
+    });
+
+    // Fermeture sur touche Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && burger.classList.contains('open')) {
+            toggleMenu(false);
+        }
+    });
+
+    // Réinitialisation sur redimension > 768px
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && burger.classList.contains('open')) {
+            toggleMenu(false);
+        }
     });
 
     // Scroll: navbar shadow + active section
@@ -404,20 +435,10 @@ document.addEventListener('DOMContentLoaded', () => {
     updateProgress();
 
     // ==========================================
-    // 9. RESIZE HANDLER
+    // 9. RESIZE HANDLER (déjà intégré avec toggleMenu)
     // ==========================================
-    let resizeTimer;
-
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            if (window.innerWidth > 768) {
-                burger.classList.remove('open');
-                navLinks.classList.remove('open');
-                burger.setAttribute('aria-expanded', 'false');
-            }
-        }, 200);
-    });
+    // Le resize est déjà géré dans la section navbar
+    // avec la réinitialisation du menu si > 768px
 
     // ==========================================
     // 10. KEYBOARD NAVIGATION (Accessibility)
