@@ -1,7 +1,7 @@
 /**
  * ============================================
  * Samy Bengriche — Portfolio Scripts
- * Version 2.0 — Premium refined (Global AI Expertise)
+ * Version 3.0 — Luxury & Innovative Direction
  * ============================================
  */
 
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 2. NAVBAR — version améliorée (burger + overlay)
+    // 2. NAVBAR — avec overlay et burger amélioré
     // ==========================================
     const navbar = document.getElementById('navbar');
     const burger = document.querySelector('.burger');
@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const navOverlay = document.getElementById('navOverlay');
     const navAnchors = document.querySelectorAll('.nav-links a');
 
-    // Fonction pour ouvrir/fermer le menu
     const toggleMenu = (forceState) => {
         const isOpen = forceState !== undefined ? forceState : !burger.classList.contains('open');
         burger.classList.toggle('open', isOpen);
@@ -54,20 +53,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = isOpen ? 'hidden' : '';
     };
 
-    // Click sur le burger
     burger.addEventListener('click', (e) => {
         e.stopPropagation();
         toggleMenu();
     });
 
-    // Click sur l'overlay → fermeture
     navOverlay.addEventListener('click', () => {
-        if (burger.classList.contains('open')) {
-            toggleMenu(false);
-        }
+        if (burger.classList.contains('open')) toggleMenu(false);
     });
 
-    // Fermeture sur lien cliqué (mobile)
     navAnchors.forEach(anchor => {
         anchor.addEventListener('click', () => {
             if (window.innerWidth <= 768 && burger.classList.contains('open')) {
@@ -76,14 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Fermeture sur touche Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && burger.classList.contains('open')) {
             toggleMenu(false);
         }
     });
 
-    // Réinitialisation sur redimension > 768px
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768 && burger.classList.contains('open')) {
             toggleMenu(false);
@@ -95,11 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateNav = () => {
         const scrollY = window.scrollY;
-
-        // Navbar shadow
         navbar.classList.toggle('scrolled', scrollY > 60);
 
-        // Active section
         let activeId = '';
         sections.forEach(sec => {
             const offset = sec.offsetTop - 120;
@@ -113,7 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Smooth scroll for nav links
     navAnchors.forEach(anchor => {
         anchor.addEventListener('click', (e) => {
             e.preventDefault();
@@ -139,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
         progressBar.style.width = progress + '%';
         progressBar.setAttribute('aria-valuenow', Math.round(progress));
 
-        // Back to top visibility
         if (scrollTop > 400) {
             backToTop.classList.add('visible');
         } else {
@@ -152,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 4. HERO PARALLAX (mouse tracking)
+    // 4. HERO PARALLAX
     // ==========================================
     const heroImageWrapper = document.getElementById('heroImageWrapper');
 
@@ -162,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const y = (e.clientY - rect.top) / rect.height - 0.5;
 
         heroImageWrapper.style.transform =
-            `perspective(800px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg) scale(1.02)`;
+            `perspective(800px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) scale(1.02)`;
     });
 
     heroImageWrapper.addEventListener('mouseleave', () => {
@@ -239,10 +226,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTech = document.getElementById('modalLanguages');
     const modalClose = document.querySelector('.modal-close');
 
-    /**
-     * Project data — strictly from the existing portfolio.
-     * No inventions, no additions.
-     */
     const projectData = {
         '42sh': {
             title: '42sh — POSIX Shell',
@@ -351,7 +334,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Open modal
     const openModal = (projectKey) => {
         const data = projectData[projectKey];
         if (!data) return;
@@ -371,18 +353,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
-
-        // Focus management
         setTimeout(() => modalClose.focus(), 100);
     };
 
-    // Close modal
     const closeModal = () => {
         modal.style.display = 'none';
         document.body.style.overflow = '';
     };
 
-    // Event: card click
     document.querySelectorAll('.project-card').forEach(card => {
         card.addEventListener('click', () => {
             const key = card.dataset.project;
@@ -390,7 +368,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Event: "View details" button
     document.querySelectorAll('.project-card-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -399,15 +376,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Event: close button
     modalClose.addEventListener('click', closeModal);
-
-    // Event: click outside content
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
     });
-
-    // Event: Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.style.display === 'block') {
             closeModal();
@@ -429,19 +401,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
-
-    // Initial calls
     updateNav();
     updateProgress();
 
     // ==========================================
-    // 9. RESIZE HANDLER (déjà intégré avec toggleMenu)
-    // ==========================================
-    // Le resize est déjà géré dans la section navbar
-    // avec la réinitialisation du menu si > 768px
-
-    // ==========================================
-    // 10. KEYBOARD NAVIGATION (Accessibility)
+    // 9. ACCESSIBILITY — modal keyboard trap
     // ==========================================
     modal.addEventListener('keydown', (e) => {
         if (e.key === 'Tab') {
@@ -461,14 +425,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ==========================================
-    // 11. PERFORMANCE — Defer non-critical
-    // ==========================================
-    if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => {
-            // Any non-critical init can go here
-        });
-    }
-
-    console.log('🚀 Portfolio Samy Bengriche — Generative AI & Enterprise Technology');
+    console.log('🚀 Portfolio Samy Bengriche — Luxury & Innovative Edition');
 });
