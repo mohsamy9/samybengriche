@@ -6,15 +6,49 @@
     <title>Samy Bengriche — Generative AI & Enterprise Technology</title>
     <meta name="description" content="Samy Bengriche — Generative AI & Enterprise Technology Specialist. EPITA graduate with hands-on experience in AI adoption, data analytics, automation, and digital transformation." />
     
-    <!-- Favicon TCOM -->
+    <!-- ===== CANONICAL ===== -->
+    <link rel="canonical" href="https://samybengriche.com/" />
+
+    <!-- ===== OPEN GRAPH / TWITTER CARDS ===== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://samybengriche.com/" />
+    <meta property="og:title" content="Samy Bengriche — Generative AI & Enterprise Technology" />
+    <meta property="og:description" content="AI adoption programs, data-driven dashboards, and automation for modern enterprises." />
+    <meta property="og:image" content="https://samybengriche.com/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Samy Bengriche — Generative AI & Enterprise Technology" />
+    <meta name="twitter:description" content="AI adoption programs, data-driven dashboards, and automation for modern enterprises." />
+    <meta name="twitter:image" content="https://samybengriche.com/img/og-image.jpg" />
+
+    <!-- ===== FORCE HTTPS (fallback côté client) ===== -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
+    <!-- ===== FAVICON ===== -->
     <link rel="icon" href="img/TCOM_Logo.png" type="image/png" />
 
-    <!-- Fonts -->
+    <!-- ===== FONTS ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
 
+    <!-- ===== STYLES ===== -->
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- ===== ANALYTICS (Google Analytics 4 — remplacez G-XXXXXXXXXX par votre ID) ===== -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+      // Consentement par défaut (RGPD)
+      gtag('consent', 'default', {
+          'analytics_storage': 'denied',
+          'ad_storage': 'denied'
+      });
+    </script>
 </head>
 <body>
 
@@ -702,8 +736,37 @@
                     I'm always open to discussing new opportunities, collaborations, or just having a conversation about technology.
                 </p>
 
+                <!-- ===== FORMULAIRE DE CONTACT ===== -->
+                <form id="contactForm" class="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" name="name" required minlength="2" placeholder="Votre nom" />
+                        <span class="form-error" id="error-name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="votre@email.com" />
+                        <span class="form-error" id="error-email"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required minlength="10" rows="4" placeholder="Votre message..."></textarea>
+                        <span class="form-error" id="error-message"></span>
+                    </div>
+                    <!-- Anti-spam honeypot (caché) -->
+                    <div class="form-honeypot" aria-hidden="true">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+                    </div>
+                    <button type="submit" class="btn-primary btn-primary-large" id="submitBtn">
+                        <span class="btn-text">Envoyer le message</span>
+                        <span class="btn-loading" aria-hidden="true">Envoi...</span>
+                    </button>
+                </form>
+
+                <!-- ===== COORDONNÉES DIRECTES ===== -->
                 <div class="contact-actions">
-                    <a href="mailto:msbengriche@gmail.com" class="btn-primary btn-primary-large">
+                    <a href="mailto:msbengriche@gmail.com" class="btn-secondary btn-secondary-large">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                         msbengriche@gmail.com
                     </a>
@@ -735,9 +798,36 @@
                 <span class="footer-year">2026</span>
                 <span class="footer-divider">·</span>
                 <span class="footer-credit">Generative AI · Data · Automation</span>
+                <span class="footer-divider">·</span>
+                <a href="privacy.html" class="footer-link">Privacy</a>
+                <span class="footer-divider">·</span>
+                <a href="terms.html" class="footer-link">Terms</a>
             </div>
         </div>
     </footer>
+
+    <!-- ===== STICKY MOBILE CTA ===== -->
+    <div id="stickyMobileCta" class="sticky-mobile-cta" aria-hidden="true">
+        <a href="#contact" class="sticky-mobile-cta-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Me contacter
+        </a>
+    </div>
+
+    <!-- ===== COOKIE BANNER (RGPD) ===== -->
+    <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+        <div class="cookie-banner-inner">
+            <div class="cookie-banner-text">
+                <strong>🍪 Ce site utilise des cookies</strong>
+                <p>J'utilise des cookies pour analyser le trafic et améliorer votre expérience. Vous pouvez accepter ou refuser.</p>
+            </div>
+            <div class="cookie-banner-actions">
+                <button id="cookieAccept" class="cookie-btn cookie-btn-accept">Accepter</button>
+                <button id="cookieDecline" class="cookie-btn cookie-btn-decline">Refuser</button>
+                <a href="privacy.html" class="cookie-link">En savoir plus</a>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== PROJECT MODAL ===== -->
     <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">

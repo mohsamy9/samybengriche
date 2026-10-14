@@ -425,5 +425,181 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+        // ==========================================
+    // 10. COOKIE BANNER (RGPD)
+    // ==========================================
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieAccept = document.getElementById('cookieAccept');
+    const cookieDecline = document.getElementById('cookieDecline');
+
+    const COOKIE_KEY = 'cookie-consent';
+
+    const showCookieBanner = () => {
+        if (!localStorage.getItem(COOKIE_KEY)) {
+            setTimeout(() => cookieBanner.classList.add('visible'), 1500);
+        }
+    };
+
+    const hideCookieBanner = (accepted) => {
+        cookieBanner.classList.remove('visible');
+        localStorage.setItem(COOKIE_KEY, accepted ? 'accepted' : 'declined');
+        // Ici vous pouvez activer/désactiver les scripts analytics
+        if (accepted && typeof gtag === 'function') {
+            gtag('consent', 'update', { analytics_storage: 'granted' });
+        }
+    };
+
+    if (cookieBanner) {
+        showCookieBanner();
+        cookieAccept.addEventListener('click', () => hideCookieBanner(true));
+        cookieDecline.addEventListener('click', () => hideCookieBanner(false));
+    }
+
+    // ==========================================
+    // 11. STICKY MOBILE CTA
+    // ==========================================
+    const stickyCta = document.getElementById('stickyMobileCta');
+
+    const updateStickyCta = () => {
+        if (!stickyCta) return;
+        if (window.innerWidth <= 768 && window.scrollY > 500) {
+            stickyCta.classList.add('visible');
+            stickyCta.setAttribute('aria-hidden', 'false');
+        } else {
+            stickyCta.classList.remove('visible');
+            stickyCta.setAttribute('aria-hidden', 'true');
+        }
+    };
+
+    window.addEventListener('scroll', updateStickyCta, { passive: true });
+    window.addEventListener('resize', updateStickyCta);
+    updateStickyCta();
+
+    // ==========================================
+    // 12. CONTACT FORM (Validation + Anti-spam + Loading)
+    // ==========================================
+    const contactForm = document.getElementById('contactForm');
+
+    if (contactForm) {
+        const submitBtn = document.getElementById('submitBtn');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const honeypot = document.getElementById('website');
+
+        const showError = (input, message) => {
+            input.classList.add('error');
+            const errorEl = document.getElementById('error-' + input.id);
+            if (errorEl) errorEl.textContent = message;
+        };
+
+        const clearError = (input) => {
+            input.classList.remove('error');
+            const errorEl = document.getElementById('error-' + input.id);
+            if (errorEl) errorEl.textContent = '';
+        };
+
+        const validateEmail = (email) => {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        };
+
+        const validateForm = () => {
+            let isValid = true;
+
+            // Name
+            if (nameInput.value.trim().length < 2) {
+                showError(nameInput, 'Le nom doit contenir au moins 2 caractères.');
+                isValid = false;
+            } else {
+                clearError(nameInput);
+            }
+
+            // Email
+            if (!validateEmail(emailInput.value.trim())) {
+                showError(emailInput, 'Veuillez entrer une adresse email valide.');
+                isValid = false;
+            } else {
+                clearError(emailInput);
+            }
+
+            // Message
+            if (messageInput.value.trim().length < 10) {
+                showError(messageInput, 'Le message doit contenir au moins 10 caractères.');
+                isValid = false;
+            } else {
+                clearError(messageInput);
+            }
+
+            return isValid;
+        };
+
+        // Validation en temps réel
+        [nameInput, emailInput, messageInput].forEach(input => {
+            input.addEventListener('input', () => {
+                if (input.classList.contains('error')) {
+                    clearError(input);
+                }
+            });
+        });
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Anti-spam honeypot
+            if (honeypot.value !== '') {
+                console.warn('Spam detected');
+                return;
+            }
+
+            if (!validateForm()) return;
+
+            // Loading state
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+
+            // Simulation d'envoi (remplacez par un vrai fetch vers votre API)
+            setTimeout(() => {
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                // Redirection vers la page de remerciement
+                window.location.href = 'thank-you.html';
+            }, 1500);
+
+            // Exemple avec fetch réel :
+            /*
+            fetch('https://votre-api.com/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: nameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    message: messageInput.value.trim()
+                })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Erreur réseau');
+                window.location.href = 'thank-you.html';
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                alert('Une erreur est survenue. Veuillez réessayer.');
+            })
+            .finally(() => {
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            });
+            */
+        });
+    }
+
+    // ==========================================
+    // 13. FORCE HTTPS (côté client — fallback)
+    // ==========================================
+    if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+        location.replace('https://' + location.host + location.pathname + location.search);
+    }
+
+    //console.log('🚀 Portfolio Samy Bengriche — Luxury & Innovative Edition');
+
     console.log('🚀 Portfolio Samy Bengriche — Luxury & Innovative Edition');
 });
