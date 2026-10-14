@@ -1,7 +1,7 @@
 /**
  * ============================================
  * Samy Bengriche — Portfolio Scripts
- * Version 3.0 — Luxury & Innovative Direction
+ * Version 3.1 — Formspree + RGPD
  * ============================================
  */
 
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 2. NAVBAR — avec overlay et burger amélioré
+    // 2. NAVBAR
     // ==========================================
     const navbar = document.getElementById('navbar');
     const burger = document.querySelector('.burger');
@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Scroll: navbar shadow + active section
     const sections = document.querySelectorAll('section[id]');
 
     const updateNav = () => {
@@ -92,9 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let activeId = '';
         sections.forEach(sec => {
             const offset = sec.offsetTop - 120;
-            if (scrollY >= offset) {
-                activeId = sec.id;
-            }
+            if (scrollY >= offset) activeId = sec.id;
         });
 
         navAnchors.forEach(a => {
@@ -127,11 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
         progressBar.style.width = progress + '%';
         progressBar.setAttribute('aria-valuenow', Math.round(progress));
 
-        if (scrollTop > 400) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
-        }
+        if (scrollTop > 400) backToTop.classList.add('visible');
+        else backToTop.classList.remove('visible');
     };
 
     backToTop.addEventListener('click', () => {
@@ -142,75 +136,69 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. HERO PARALLAX
     // ==========================================
     const heroImageWrapper = document.getElementById('heroImageWrapper');
+    const heroContainer = document.getElementById('heroContainer');
 
-    document.getElementById('heroContainer').addEventListener('mousemove', (e) => {
-        const rect = heroImageWrapper.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
+    if (heroContainer && heroImageWrapper) {
+        heroContainer.addEventListener('mousemove', (e) => {
+            const rect = heroImageWrapper.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            heroImageWrapper.style.transform =
+                `perspective(800px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) scale(1.02)`;
+        });
 
-        heroImageWrapper.style.transform =
-            `perspective(800px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) scale(1.02)`;
-    });
-
-    heroImageWrapper.addEventListener('mouseleave', () => {
-        heroImageWrapper.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)';
-    });
+        heroImageWrapper.addEventListener('mouseleave', () => {
+            heroImageWrapper.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)';
+        });
+    }
 
     // ==========================================
     // 5. TYPING ANIMATION
     // ==========================================
     const typingEl = document.getElementById('hero-typing');
-    const phrases = [
-        'Generative AI & Enterprise Technology Specialist',
-        'AI Adoption · Data Analytics · Automation',
-        'Building AI programs that deliver value'
-    ];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingTimeout;
+    if (typingEl) {
+        const phrases = [
+            'Generative AI & Enterprise Technology Specialist',
+            'AI Adoption · Data Analytics · Automation',
+            'Building AI programs that deliver value'
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
-    const typeEffect = () => {
-        const currentPhrase = phrases[phraseIndex];
-        const speed = isDeleting ? 25 : 45;
+        const typeEffect = () => {
+            const currentPhrase = phrases[phraseIndex];
+            const speed = isDeleting ? 25 : 45;
 
-        if (!isDeleting && charIndex < currentPhrase.length) {
-            typingEl.textContent += currentPhrase.charAt(charIndex);
-            charIndex++;
-            typingTimeout = setTimeout(typeEffect, speed);
-        } else if (isDeleting && charIndex > 0) {
-            typingEl.textContent = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-            typingTimeout = setTimeout(typeEffect, speed);
-        } else if (!isDeleting && charIndex === currentPhrase.length) {
-            typingTimeout = setTimeout(() => {
-                isDeleting = true;
-                typeEffect();
-            }, 2200);
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            typingTimeout = setTimeout(typeEffect, 400);
-        }
-    };
+            if (!isDeleting && charIndex < currentPhrase.length) {
+                typingEl.textContent += currentPhrase.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeEffect, speed);
+            } else if (isDeleting && charIndex > 0) {
+                typingEl.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(typeEffect, speed);
+            } else if (!isDeleting && charIndex === currentPhrase.length) {
+                setTimeout(() => { isDeleting = true; typeEffect(); }, 2200);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(typeEffect, 400);
+            }
+        };
 
-    setTimeout(typeEffect, 600);
+        setTimeout(typeEffect, 600);
+    }
 
     // ==========================================
-    // 6. REVEAL ON SCROLL (IntersectionObserver)
+    // 6. REVEAL ON SCROLL
     // ==========================================
     const revealElements = document.querySelectorAll('.reveal');
-
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px'
-    });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     revealElements.forEach(el => revealObserver.observe(el));
 
@@ -227,130 +215,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalClose = document.querySelector('.modal-close');
 
     const projectData = {
-        '42sh': {
-            title: '42sh — POSIX Shell',
-            objective: 'Develop a POSIX-compliant shell in C with a comprehensive test suite.',
-            role: 'Coordinator and Task Monitor',
-            description: 'Spearheaded a team of four in the creation of a POSIX-compliant shell named 42sh. Oversaw task delegation, project planning, and progress tracking. The shell featured essential functionalities such as command execution, piping, and redirection, and was rigorously tested with a custom test suite to ensure robustness and reliability.',
-            technologies: 'C, POSIX, Shell scripting'
-        },
-        'tiger': {
-            title: 'Tiger Compiler',
-            objective: 'Design and implement a compiler for the Tiger programming language.',
-            role: 'Group Leader',
-            description: 'Led the development of a compiler for the Tiger language, requiring deep understanding of language theory and compiler construction. The compiler featured lexical analysis, syntax parsing, semantic analysis, and code generation.',
-            technologies: 'C++, Flex, Bison, LLVM'
-        },
-        'ping': {
-            title: 'Ping IDE',
-            objective: 'Develop an Integrated Development Environment (IDE) using JavaScript and Java.',
-            role: 'Full Stack Developer',
-            description: 'Contributed to the development of an IDE called Ping, utilizing both JavaScript and Java to create a user-friendly development environment. Implemented features such as syntax highlighting, code completion, and debugging tools.',
-            technologies: 'Java, JavaScript, HTML, CSS'
-        },
-        'httpd': {
-            title: 'HTTPd',
-            objective: 'Build an HTTP server in C.',
-            role: 'Lead Developer',
-            description: 'Led the development of an HTTP server in C, focusing on low-level socket programming, request handling, and response generation. The server handles multiple client connections concurrently, ensuring high performance and reliability.',
-            technologies: 'C'
-        },
-        'PMS': {
-            title: 'PMS — Port Management System',
-            objective: 'Analyze and manage a port\'s financial and material resources for optimal efficiency.',
-            role: 'Project Analyst',
-            description: 'Conducted a comprehensive analysis of port operations, focusing on financial, material, and efficiency aspects. Developed recommendations for improving management practices and optimizing resource allocation.',
-            technologies: 'Analysis, Optimization'
-        },
-        'Zoglu': {
-            title: 'Zoglu — Network Redesign',
-            objective: 'Organize the redesign of a company\'s network system.',
-            role: 'Project Manager',
-            description: 'Managed the redesign of a company\'s network infrastructure, overseeing the evaluation of current systems and planning the integration of new technologies. Coordinated with stakeholders to ensure the new system met organizational needs and improved network performance.',
-            technologies: 'Network Design, Project Management'
-        },
-        'chess': {
-            title: 'Chess Engine',
-            objective: 'Build a chess game engine with move simulation capabilities.',
-            role: 'Lead Developer',
-            description: 'Designed and implemented a chess game engine with a fully functional chessboard and move simulation. Developed algorithms for move validation, game state management, and AI opponent strategies.',
-            technologies: 'C++, Python'
-        },
-        'librubik': {
-            title: 'Librubik',
-            objective: 'Create a library for Rubik\'s Cube manipulation in C++.',
-            role: 'Developer',
-            description: 'Developed a C++ library for Rubik\'s Cube manipulation, focusing on a clear, general, and easy-to-debug codebase. Implemented features for cube representation, move generation, and solving algorithms.',
-            technologies: 'C++'
-        },
-        'ERO': {
-            title: 'ERO — Snow Removal Optimization',
-            objective: 'Develop IT solutions for snow removal in Montreal.',
-            role: 'Project Leader',
-            description: 'Led the research and development of a Python program to find the optimal solution for minimizing the cost of snow removal in Montreal while ensuring maximum efficiency. Studied algorithms including the Traveling Salesman Problem, Chinese Postman Problem, Eulerian circuits, flow problems, and transportation problems.',
-            technologies: 'Python, Optimization'
-        },
-        'libbistro': {
-            title: 'Libbistro',
-            objective: 'Create a library for integer arithmetic computation in any base with arbitrary precision.',
-            role: 'Developer',
-            description: 'Implemented a C++ library for integer arithmetic in any base with arbitrary precision. Focused on correctness and reliability, emphasizing generic programming, template usage, and adherence to defined interfaces.',
-            technologies: 'C++, Templates'
-        },
-        'vorace': {
-            title: 'Vorace — Web Scraper',
-            objective: 'Develop a web scraper tool to extract data from an e-commerce website.',
-            role: 'Developer',
-            description: 'Created a web scraper tool to extract data from an e-commerce website, overcoming obstacles such as session protection, rate limits, and captchas. Demonstrated proficiency in data extraction and automation.',
-            technologies: 'JavaScript'
-        },
-        'jws': {
-            title: 'Java Web Services',
-            objective: 'Create the backend for a Bomberman game.',
-            role: 'Backend Developer',
-            description: 'Focused on the backend development of the Bomberman game, handling server-side logic and game state management. Implemented features such as player interactions, game updates, and network communication, ensuring a smooth and responsive gameplay experience.',
-            technologies: 'Java'
-        },
-        'Malloc': {
-            title: 'Malloc',
-            objective: 'Reimplement a memory allocator in C.',
-            role: 'Developer',
-            description: 'Reimplemented a memory allocator, designing a custom memory management system with allocation, deallocation, and efficient memory reuse. Emphasized performance optimization and robustness, reflecting a deep understanding of low-level memory management.',
-            technologies: 'C, Memory Management'
-        },
-        'Boot Camps': {
-            title: 'Boot Camps',
-            objective: 'Intensive learning of programming languages and technologies.',
-            role: 'Participant',
-            description: 'Completed a series of boot camps focused on mastering various programming languages, including JavaScript, SQL, Java, C, and C++. These intensive sessions provided a solid foundation in multiple technologies and programming paradigms.',
-            technologies: 'JavaScript, SQL, Java, C, C++'
-        },
-        'Myfind': {
-            title: 'Myfind',
-            objective: 'Implement the find command in C, including various options.',
-            role: 'Developer',
-            description: 'Developed a custom implementation of the find command, replicating its core functionalities and options. The command allows for directory traversal and file searching, showcasing the ability to recreate essential command-line utilities.',
-            technologies: 'C'
-        }
+        '42sh': { title: '42sh — POSIX Shell', objective: 'Develop a POSIX-compliant shell in C with a comprehensive test suite.', role: 'Coordinator and Task Monitor', description: 'Spearheaded a team of four in the creation of a POSIX-compliant shell named 42sh. Oversaw task delegation, project planning, and progress tracking.', technologies: 'C, POSIX, Shell scripting' },
+        'tiger': { title: 'Tiger Compiler', objective: 'Design and implement a compiler for the Tiger programming language.', role: 'Group Leader', description: 'Led the development of a compiler for the Tiger language, requiring deep understanding of language theory and compiler construction.', technologies: 'C++, Flex, Bison, LLVM' },
+        'ping': { title: 'Ping IDE', objective: 'Develop an Integrated Development Environment (IDE) using JavaScript and Java.', role: 'Full Stack Developer', description: 'Contributed to the development of an IDE called Ping, utilizing both JavaScript and Java.', technologies: 'Java, JavaScript, HTML, CSS' },
+        'httpd': { title: 'HTTPd', objective: 'Build an HTTP server in C.', role: 'Lead Developer', description: 'Led the development of an HTTP server in C, focusing on low-level socket programming.', technologies: 'C' },
+        'PMS': { title: 'PMS — Port Management System', objective: 'Analyze and manage a port\'s financial and material resources for optimal efficiency.', role: 'Project Analyst', description: 'Conducted a comprehensive analysis of port operations.', technologies: 'Analysis, Optimization' },
+        'Zoglu': { title: 'Zoglu — Network Redesign', objective: 'Organize the redesign of a company\'s network system.', role: 'Project Manager', description: 'Managed the redesign of a company\'s network infrastructure.', technologies: 'Network Design, Project Management' },
+        'chess': { title: 'Chess Engine', objective: 'Build a chess game engine with move simulation capabilities.', role: 'Lead Developer', description: 'Designed and implemented a chess game engine with a fully functional chessboard.', technologies: 'C++, Python' },
+        'librubik': { title: 'Librubik', objective: 'Create a library for Rubik\'s Cube manipulation in C++.', role: 'Developer', description: 'Developed a C++ library for Rubik\'s Cube manipulation.', technologies: 'C++' },
+        'ERO': { title: 'ERO — Snow Removal Optimization', objective: 'Develop IT solutions for snow removal in Montreal.', role: 'Project Leader', description: 'Led the research and development of a Python program to find the optimal solution.', technologies: 'Python, Optimization' },
+        'libbistro': { title: 'Libbistro', objective: 'Create a library for integer arithmetic computation in any base.', role: 'Developer', description: 'Implemented a C++ library for integer arithmetic in any base with arbitrary precision.', technologies: 'C++, Templates' },
+        'vorace': { title: 'Vorace — Web Scraper', objective: 'Develop a web scraper tool to extract data from an e-commerce website.', role: 'Developer', description: 'Created a web scraper tool to extract data from an e-commerce website.', technologies: 'JavaScript' },
+        'jws': { title: 'Java Web Services', objective: 'Create the backend for a Bomberman game.', role: 'Backend Developer', description: 'Focused on the backend development of the Bomberman game.', technologies: 'Java' },
+        'Malloc': { title: 'Malloc', objective: 'Reimplement a memory allocator in C.', role: 'Developer', description: 'Reimplemented a memory allocator with a custom memory management system.', technologies: 'C, Memory Management' },
+        'Boot Camps': { title: 'Boot Camps', objective: 'Intensive learning of programming languages and technologies.', role: 'Participant', description: 'Completed a series of boot camps focused on mastering various programming languages.', technologies: 'JavaScript, SQL, Java, C, C++' },
+        'Myfind': { title: 'Myfind', objective: 'Implement the find command in C, including various options.', role: 'Developer', description: 'Developed a custom implementation of the find command.', technologies: 'C' }
     };
 
     const openModal = (projectKey) => {
         const data = projectData[projectKey];
         if (!data) return;
-
         const card = document.querySelector(`.project-card[data-project="${projectKey}"]`);
         const imgSrc = card ? card.querySelector('img').src : '';
-
         modalImg.src = imgSrc;
         modalImg.alt = data.title;
         modalTitle.textContent = data.title;
         modalObjective.textContent = data.objective;
         modalRole.textContent = data.role;
         modalDescription.textContent = data.description;
-
         const techArray = data.technologies.split(',').map(t => t.trim());
         modalTech.innerHTML = techArray.map(t => `<span>${t}</span>`).join('');
-
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
         setTimeout(() => modalClose.focus(), 100);
@@ -362,40 +256,30 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const key = card.dataset.project;
-            openModal(key);
-        });
+        card.addEventListener('click', () => openModal(card.dataset.project));
     });
-
     document.querySelectorAll('.project-card-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            const key = btn.dataset.project;
-            openModal(key);
+            openModal(btn.dataset.project);
         });
     });
-
     modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.style.display === 'block') {
-            closeModal();
-        }
+        if (e.key === 'Escape' && modal.style.display === 'block') closeModal();
     });
 
     // ==========================================
     // 8. SCROLL EVENTS
     // ==========================================
     let scrollTimeout;
-
     const onScroll = () => {
         if (scrollTimeout) return;
         scrollTimeout = requestAnimationFrame(() => {
             updateNav();
             updateProgress();
+            updateStickyCta();
             scrollTimeout = null;
         });
     };
@@ -409,12 +293,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     modal.addEventListener('keydown', (e) => {
         if (e.key === 'Tab') {
-            const focusable = modal.querySelectorAll(
-                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-            );
+            const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
             const first = focusable[0];
             const last = focusable[focusable.length - 1];
-
             if (e.shiftKey && document.activeElement === first) {
                 e.preventDefault();
                 last.focus();
@@ -425,13 +306,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-        // ==========================================
+    // ==========================================
     // 10. COOKIE BANNER (RGPD)
     // ==========================================
     const cookieBanner = document.getElementById('cookieBanner');
     const cookieAccept = document.getElementById('cookieAccept');
     const cookieDecline = document.getElementById('cookieDecline');
-
     const COOKIE_KEY = 'cookie-consent';
 
     const showCookieBanner = () => {
@@ -443,7 +323,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const hideCookieBanner = (accepted) => {
         cookieBanner.classList.remove('visible');
         localStorage.setItem(COOKIE_KEY, accepted ? 'accepted' : 'declined');
-        // Ici vous pouvez activer/désactiver les scripts analytics
         if (accepted && typeof gtag === 'function') {
             gtag('consent', 'update', { analytics_storage: 'granted' });
         }
@@ -460,7 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     const stickyCta = document.getElementById('stickyMobileCta');
 
-    const updateStickyCta = () => {
+    function updateStickyCta() {
         if (!stickyCta) return;
         if (window.innerWidth <= 768 && window.scrollY > 500) {
             stickyCta.classList.add('visible');
@@ -469,137 +348,135 @@ document.addEventListener('DOMContentLoaded', () => {
             stickyCta.classList.remove('visible');
             stickyCta.setAttribute('aria-hidden', 'true');
         }
-    };
-
-    window.addEventListener('scroll', updateStickyCta, { passive: true });
+    }
     window.addEventListener('resize', updateStickyCta);
     updateStickyCta();
 
     // ==========================================
-    // 12. CONTACT FORM (Validation + Anti-spam + Loading)
+    // 12. CONTACT FORM (Formspree + RGPD)
     // ==========================================
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
         const submitBtn = document.getElementById('submitBtn');
+        const formStatus = document.getElementById('formStatus');
         const nameInput = document.getElementById('name');
         const emailInput = document.getElementById('email');
         const messageInput = document.getElementById('message');
+        const consentInput = document.getElementById('consent');
         const honeypot = document.getElementById('website');
+        const replyToHidden = document.getElementById('replyto-hidden');
 
         const showError = (input, message) => {
             input.classList.add('error');
+            if (input.type === 'checkbox') input.closest('.checkbox-label').classList.add('error');
             const errorEl = document.getElementById('error-' + input.id);
             if (errorEl) errorEl.textContent = message;
         };
 
         const clearError = (input) => {
             input.classList.remove('error');
+            if (input.type === 'checkbox') input.closest('.checkbox-label').classList.remove('error');
             const errorEl = document.getElementById('error-' + input.id);
             if (errorEl) errorEl.textContent = '';
         };
 
-        const validateEmail = (email) => {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        };
+        const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
         const validateForm = () => {
             let isValid = true;
 
-            // Name
             if (nameInput.value.trim().length < 2) {
                 showError(nameInput, 'Le nom doit contenir au moins 2 caractères.');
                 isValid = false;
-            } else {
-                clearError(nameInput);
-            }
+            } else clearError(nameInput);
 
-            // Email
             if (!validateEmail(emailInput.value.trim())) {
                 showError(emailInput, 'Veuillez entrer une adresse email valide.');
                 isValid = false;
-            } else {
-                clearError(emailInput);
-            }
+            } else clearError(emailInput);
 
-            // Message
             if (messageInput.value.trim().length < 10) {
                 showError(messageInput, 'Le message doit contenir au moins 10 caractères.');
                 isValid = false;
-            } else {
-                clearError(messageInput);
-            }
+            } else clearError(messageInput);
+
+            if (!consentInput.checked) {
+                showError(consentInput, 'Vous devez accepter pour continuer.');
+                isValid = false;
+            } else clearError(consentInput);
 
             return isValid;
         };
 
-        // Validation en temps réel
         [nameInput, emailInput, messageInput].forEach(input => {
             input.addEventListener('input', () => {
-                if (input.classList.contains('error')) {
-                    clearError(input);
-                }
+                if (input.classList.contains('error')) clearError(input);
             });
         });
+        consentInput.addEventListener('change', () => {
+            if (consentInput.checked) clearError(consentInput);
+        });
 
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            formStatus.textContent = '';
+            formStatus.className = 'form-status';
 
-            // Anti-spam honeypot
             if (honeypot.value !== '') {
-                console.warn('Spam detected');
+                console.warn('Spam detected (honeypot).');
                 return;
             }
 
             if (!validateForm()) return;
 
-            // Loading state
+            replyToHidden.value = emailInput.value.trim();
+
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
 
-            // Simulation d'envoi (remplacez par un vrai fetch vers votre API)
-            setTimeout(() => {
-                submitBtn.classList.remove('loading');
-                submitBtn.disabled = false;
-                // Redirection vers la page de remerciement
-                window.location.href = 'thank-you.html';
-            }, 1500);
+            try {
+                const formData = new FormData(contactForm);
+                formData.delete('consent');
 
-            // Exemple avec fetch réel :
-            /*
-            fetch('https://votre-api.com/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: nameInput.value.trim(),
-                    email: emailInput.value.trim(),
-                    message: messageInput.value.trim()
-                })
-            })
-            .then(response => {
-                if (!response.ok) throw new Error('Erreur réseau');
-                window.location.href = 'thank-you.html';
-            })
-            .catch(error => {
-                console.error('Erreur:', error);
-                alert('Une erreur est survenue. Veuillez réessayer.');
-            })
-            .finally(() => {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    formStatus.textContent = '✅ Message envoyé ! Redirection...';
+                    formStatus.classList.add('success');
+                    contactForm.reset();
+                    setTimeout(() => { window.location.href = 'thank-you.html'; }, 800);
+                } else {
+                    const data = await response.json().catch(() => ({}));
+                    const msg = data.errors
+                        ? data.errors.map(err => err.message).join(', ')
+                        : 'Une erreur est survenue. Veuillez réessayer.';
+                    throw new Error(msg);
+                }
+            } catch (error) {
+                console.error('Erreur Formspree:', error);
+                formStatus.textContent = '❌ ' + (error.message || 'Erreur réseau. Réessayez plus tard.');
+                formStatus.classList.add('error');
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
-            });
-            */
+            }
         });
     }
 
+        // ==========================================
+    // 13. FORCE HTTPS (désactivé sur GitHub Pages — déjà en HTTPS)
     // ==========================================
-    // 13. FORCE HTTPS (côté client — fallback)
-    // ==========================================
+    // GitHub Pages sert automatiquement en HTTPS, aucune action requise.
+    // Ce bloc est conservé pour compatibilité si vous migrez vers un autre hébergeur.
+    /*
     if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
         location.replace('https://' + location.host + location.pathname + location.search);
     }
+    */
 
-    //console.log('🚀 Portfolio Samy Bengriche — Luxury & Innovative Edition');
-
-    console.log('🚀 Portfolio Samy Bengriche — Luxury & Innovative Edition');
+    console.log('🚀 Portfolio Samy Bengriche — Formspree + RGPD Edition');
 });
