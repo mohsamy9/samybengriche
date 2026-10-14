@@ -1,7 +1,7 @@
 /**
  * ============================================
  * Samy Bengriche — Portfolio Scripts
- * Version 3.1 — Formspree + RGPD
+ * Version 3.2 — Clean (mailto contact)
  * ============================================
  */
 
@@ -307,35 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 10. COOKIE BANNER (RGPD)
-    // ==========================================
-    const cookieBanner = document.getElementById('cookieBanner');
-    const cookieAccept = document.getElementById('cookieAccept');
-    const cookieDecline = document.getElementById('cookieDecline');
-    const COOKIE_KEY = 'cookie-consent';
-
-    const showCookieBanner = () => {
-        if (!localStorage.getItem(COOKIE_KEY)) {
-            setTimeout(() => cookieBanner.classList.add('visible'), 1500);
-        }
-    };
-
-    const hideCookieBanner = (accepted) => {
-        cookieBanner.classList.remove('visible');
-        localStorage.setItem(COOKIE_KEY, accepted ? 'accepted' : 'declined');
-        if (accepted && typeof gtag === 'function') {
-            gtag('consent', 'update', { analytics_storage: 'granted' });
-        }
-    };
-
-    if (cookieBanner) {
-        showCookieBanner();
-        cookieAccept.addEventListener('click', () => hideCookieBanner(true));
-        cookieDecline.addEventListener('click', () => hideCookieBanner(false));
-    }
-
-    // ==========================================
-    // 11. STICKY MOBILE CTA
+    // 10. STICKY MOBILE CTA
     // ==========================================
     const stickyCta = document.getElementById('stickyMobileCta');
 
@@ -352,131 +324,5 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', updateStickyCta);
     updateStickyCta();
 
-    // ==========================================
-    // 12. CONTACT FORM (Formspree + RGPD)
-    // ==========================================
-    const contactForm = document.getElementById('contactForm');
-
-    if (contactForm) {
-        const submitBtn = document.getElementById('submitBtn');
-        const formStatus = document.getElementById('formStatus');
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const messageInput = document.getElementById('message');
-        const consentInput = document.getElementById('consent');
-        const honeypot = document.getElementById('website');
-        const replyToHidden = document.getElementById('replyto-hidden');
-
-        const showError = (input, message) => {
-            input.classList.add('error');
-            if (input.type === 'checkbox') input.closest('.checkbox-label').classList.add('error');
-            const errorEl = document.getElementById('error-' + input.id);
-            if (errorEl) errorEl.textContent = message;
-        };
-
-        const clearError = (input) => {
-            input.classList.remove('error');
-            if (input.type === 'checkbox') input.closest('.checkbox-label').classList.remove('error');
-            const errorEl = document.getElementById('error-' + input.id);
-            if (errorEl) errorEl.textContent = '';
-        };
-
-        const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-        const validateForm = () => {
-            let isValid = true;
-
-            if (nameInput.value.trim().length < 2) {
-                showError(nameInput, 'Le nom doit contenir au moins 2 caractères.');
-                isValid = false;
-            } else clearError(nameInput);
-
-            if (!validateEmail(emailInput.value.trim())) {
-                showError(emailInput, 'Veuillez entrer une adresse email valide.');
-                isValid = false;
-            } else clearError(emailInput);
-
-            if (messageInput.value.trim().length < 10) {
-                showError(messageInput, 'Le message doit contenir au moins 10 caractères.');
-                isValid = false;
-            } else clearError(messageInput);
-
-            if (!consentInput.checked) {
-                showError(consentInput, 'Vous devez accepter pour continuer.');
-                isValid = false;
-            } else clearError(consentInput);
-
-            return isValid;
-        };
-
-        [nameInput, emailInput, messageInput].forEach(input => {
-            input.addEventListener('input', () => {
-                if (input.classList.contains('error')) clearError(input);
-            });
-        });
-        consentInput.addEventListener('change', () => {
-            if (consentInput.checked) clearError(consentInput);
-        });
-
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            formStatus.textContent = '';
-            formStatus.className = 'form-status';
-
-            if (honeypot.value !== '') {
-                console.warn('Spam detected (honeypot).');
-                return;
-            }
-
-            if (!validateForm()) return;
-
-            replyToHidden.value = emailInput.value.trim();
-
-            submitBtn.classList.add('loading');
-            submitBtn.disabled = true;
-
-            try {
-                const formData = new FormData(contactForm);
-                formData.delete('consent');
-
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    formStatus.textContent = '✅ Message envoyé ! Redirection...';
-                    formStatus.classList.add('success');
-                    contactForm.reset();
-                    setTimeout(() => { window.location.href = 'thank-you.html'; }, 800);
-                } else {
-                    const data = await response.json().catch(() => ({}));
-                    const msg = data.errors
-                        ? data.errors.map(err => err.message).join(', ')
-                        : 'Une erreur est survenue. Veuillez réessayer.';
-                    throw new Error(msg);
-                }
-            } catch (error) {
-                console.error('Erreur Formspree:', error);
-                formStatus.textContent = '❌ ' + (error.message || 'Erreur réseau. Réessayez plus tard.');
-                formStatus.classList.add('error');
-                submitBtn.classList.remove('loading');
-                submitBtn.disabled = false;
-            }
-        });
-    }
-
-        // ==========================================
-    // 13. FORCE HTTPS (désactivé sur GitHub Pages — déjà en HTTPS)
-    // ==========================================
-    // GitHub Pages sert automatiquement en HTTPS, aucune action requise.
-    // Ce bloc est conservé pour compatibilité si vous migrez vers un autre hébergeur.
-    /*
-    if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
-        location.replace('https://' + location.host + location.pathname + location.search);
-    }
-    */
-
-    console.log('🚀 Portfolio Samy Bengriche — Formspree + RGPD Edition');
+    console.log('🚀 Portfolio Samy Bengriche — Clean Edition');
 });

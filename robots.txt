@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /thank-you.html
 Disallow: /404.html
 
 Sitemap: https://mohsamy9.github.io/samybengriche/sitemap.xml

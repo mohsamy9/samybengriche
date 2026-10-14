@@ -36,18 +36,8 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
 
-    <!-- Analytics (Google Analytics 4 — remplacez G-XXXXXXXXXX par votre ID réel) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-      gtag('consent', 'default', {
-          'analytics_storage': 'denied',
-          'ad_storage': 'denied'
-      });
-    </script>
+    
+      
 </head>
 <body>
 
@@ -629,60 +619,22 @@
                 <p class="contact-text">
                     I'm always open to discussing new opportunities, collaborations, or just having a conversation about technology.
                 </p>
+                                <!-- CTA de contact direct -->
+                <div class="contact-cta-block">
+                    <a href="mailto:msbengriche@gmail.com?subject=Contact%20depuis%20votre%20portfolio&body=Bonjour%20Samy%2C%0A%0A"
+                       class="btn-primary btn-primary-large contact-cta-main">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        Envoyer un message
+                    </a>
+                    <p class="contact-cta-hint">
+                        Le bouton ouvrira votre application mail avec mon adresse déjà renseignée.
+                    </p>
+                </div>
 
-                <!-- Formulaire Formspree -->
-                <form id="contactForm" class="contact-form" action="https://formspree.io/f/mgaongkb" method="POST" novalidate>
-                    
-                    <div class="form-group">
-                        <label for="name">Nom *</label>
-                        <input type="text" id="name" name="name" required minlength="2" placeholder="Votre nom" autocomplete="name" />
-                        <span class="form-error" id="error-name"></span>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="votre@email.com" autocomplete="email" />
-                        <span class="form-error" id="error-email"></span>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" required minlength="10" rows="4" placeholder="Votre message..."></textarea>
-                        <span class="form-error" id="error-message"></span>
-                    </div>
-                    
-                    <div class="form-group form-checkbox">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="consent" name="consent" required />
-                            <span class="checkbox-custom"></span>
-                            <span class="checkbox-text">
-                                J'accepte que mes données (nom, email, message) soient utilisées pour me recontacter.
-                                <a href="privacy.html" target="_blank">En savoir plus</a>
-                            </span>
-                        </label>
-                        <span class="form-error" id="error-consent"></span>
-                    </div>
-                    
-                    <div class="form-honeypot" aria-hidden="true">
-                        <label for="website">Website (ne pas remplir)</label>
-                        <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off" />
-                    </div>
-                    
-                    <input type="hidden" name="_subject" value="Nouveau message depuis votre portfolio" />
-                    <input type="hidden" name="_replyto" value="" id="replyto-hidden" />
-                    
-                    <button type="submit" class="btn-primary btn-primary-large" id="submitBtn">
-                        <span class="btn-text">Envoyer le message</span>
-                        <span class="btn-loading" aria-hidden="true">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="animation: spin 1s linear infinite; vertical-align: middle;">
-                                <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-                            </svg>
-                            Envoi...
-                        </span>
-                    </button>
-                    
-                    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-                </form>
+                
 
                 <div class="contact-actions">
                     <a href="mailto:msbengriche@gmail.com" class="btn-secondary btn-secondary-large">
@@ -718,9 +670,7 @@
                 <span class="footer-divider">·</span>
                 <span class="footer-credit">Generative AI · Data · Automation</span>
                 <span class="footer-divider">·</span>
-                <a href="privacy.html" class="footer-link">Privacy</a>
-                <span class="footer-divider">·</span>
-                <a href="terms.html" class="footer-link">Terms</a>
+                
             </div>
         </div>
     </footer>
@@ -733,20 +683,7 @@
         </a>
     </div>
 
-    <!-- Cookie Banner -->
-    <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
-        <div class="cookie-banner-inner">
-            <div class="cookie-banner-text">
-                <strong>🍪 Ce site utilise des cookies</strong>
-                <p>J'utilise des cookies pour analyser le trafic et améliorer votre expérience. Vous pouvez accepter ou refuser.</p>
-            </div>
-            <div class="cookie-banner-actions">
-                <button id="cookieAccept" class="cookie-btn cookie-btn-accept">Accepter</button>
-                <button id="cookieDecline" class="cookie-btn cookie-btn-decline">Refuser</button>
-                <a href="privacy.html" class="cookie-link">En savoir plus</a>
-            </div>
-        </div>
-    </div>
+    
 
     <!-- Project Modal -->
     <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
