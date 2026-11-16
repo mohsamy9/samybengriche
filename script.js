@@ -91,6 +91,42 @@
         reveals.forEach((el) => el.classList.add('is-visible'));
     }
 
+    /* ---------- Modale projets ---------- */
+    const modal = $('#projectModal');
+    if (modal && typeof modal.showModal === 'function') {
+        const mImg = $('#modalImage', modal);
+        const mTitle = $('#modalTitle', modal);
+        const mContent = $('#modalContent', modal);
+        const mTags = $('#modalTags', modal);
+        let lastTrigger = null;
+
+        const openProject = (card, trigger) => {
+            mImg.src = $('img', card).src;
+            mTitle.textContent = $('.project-title', card).textContent;
+            mContent.innerHTML = $('.project-more', card).innerHTML;
+            mTags.innerHTML = $('.project-tags', card).innerHTML;
+            lastTrigger = trigger;
+            modal.showModal();
+            modal.scrollTop = 0;
+            document.body.classList.add('modal-open');
+        };
+
+        $$('.project').forEach((card) => {
+            const btn = $('.project-open', card);
+            btn.addEventListener('click', () => openProject(card, btn));
+        });
+
+        $('.modal-close', modal).addEventListener('click', () => modal.close());
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.close(); });
+        modal.addEventListener('close', () => {
+            document.body.classList.remove('modal-open');
+            if (lastTrigger) lastTrigger.focus();
+        });
+    } else {
+        // Navigateurs sans <dialog> : afficher le détail directement dans la carte
+        $$('.project-more').forEach((el) => { el.hidden = false; el.classList.add('project-more-inline'); });
+    }
+
     /* ---------- Année ---------- */
     const year = $('#year');
     if (year) year.textContent = String(new Date().getFullYear());
