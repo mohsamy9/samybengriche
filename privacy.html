@@ -2,29 +2,38 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Politique de confidentialité | Samy Bengriche</title>
-    <meta name="description" content="Politique de confidentialité — aucune donnée collectée sur ce site." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Politique de confidentialité — Samy Bengriche</title>
+    <meta name="description" content="Politique de confidentialité du site de Samy Bengriche, consultant freelance." />
     <meta name="robots" content="index, follow" />
     <link rel="icon" href="img/TCOM_Logo.png" type="image/png" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
     <link rel="stylesheet" href="styles.css" />
-    <style>
-        .legal-content { max-width: 800px; margin: 0 auto; padding: 120px 24px 80px; }
-        .legal-content h1 { font-size: 2.2rem; margin-bottom: 24px; color: var(--text-primary); }
-        .legal-content h2 { font-size: 1.25rem; margin: 32px 0 12px; color: var(--text-primary); }
-        .legal-content p, .legal-content li { color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
-        .legal-content a { color: var(--accent-light); }
-        .legal-back { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-light); text-decoration: none; margin-bottom: 32px; font-size: 0.9rem; }
-        .legal-back:hover { color: var(--gold-light); }
-        .legal-update { font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 32px; }
-    </style>
 </head>
-<body>
-        <div class="legal-content">
-        <a href="index.html" class="legal-back">← Retour à l'accueil</a>
+<body class="page-simple">
+    <header class="site-header is-scrolled">
+        <div class="wrap header-inner">
+            <a href="index.html" class="brand" aria-label="Samy Bengriche, accueil">
+                <span class="brand-mark" aria-hidden="true">SB</span>
+                <span class="brand-name">Samy Bengriche</span>
+            </a>
+            <a href="index.html" class="btn btn-ghost" style="min-height:40px;padding:0 16px;font-size:.875rem">Retour au site</a>
+        </div>
+    </header>
+    <main>
+        <article class="wrap legal">
         <h1>Politique de confidentialité</h1>
-        <p class="legal-update">Dernière mise à jour : Octobre 2026</p>
+        <p class="legal-update">Dernière mise à jour : Novembre 2026</p>
 
         <h2>1. Responsable du traitement</h2>
         <p>
@@ -37,6 +46,7 @@
         <ul>
             <li><strong>Nom</strong> (obligatoire)</li>
             <li><strong>Adresse email</strong> (obligatoire)</li>
+            <li><strong>Entreprise</strong> (facultatif)</li>
             <li><strong>Message</strong> (obligatoire)</li>
         </ul>
         <p>Aucune donnée sensible n'est collectée. Aucun profilage n'est effectué.</p>
@@ -63,11 +73,10 @@
         </p>
 
         <h2>6. Cookies et mesure d'audience</h2>
-        <p>
-            Ce site utilise <strong>Google Analytics 4</strong> pour mesurer l'audience de manière anonymisée.
-            Les cookies analytiques ne sont déposés <strong>qu'après votre consentement explicite</strong> via la bannière cookies.
-            Vous pouvez modifier votre choix à tout moment en effaçant les cookies de votre navigateur.
-        </p>
+            <p>
+                Ce site <strong>ne dépose aucun cookie</strong> et n'utilise aucun outil de mesure d'audience ni de suivi publicitaire.
+                Seule votre préférence de thème (clair ou sombre) est enregistrée localement dans votre navigateur, sans être transmise à quiconque.
+            </p>
 
         <h2>7. Vos droits (RGPD)</h2>
         <p>Conformément aux articles 15 à 22 du RGPD, vous disposez des droits suivants :</p>
@@ -101,7 +110,16 @@
         <p>
             Ce site est hébergé par <strong>GitHub Pages</strong> (GitHub, Inc., USA). GitHub peut collecter des logs techniques anonymes (adresse IP, user-agent) pour la sécurité et le bon fonctionnement du service, conformément à sa propre politique de confidentialité.
         </p>
-    </div>
-
+        </article>
+    </main>
+    <footer class="site-footer">
+        <div class="wrap footer-inner">
+            <p>© 2026 Samy Bengriche · Consultant indépendant, Paris</p>
+            <ul>
+                <li><a href="terms.html">CGU</a></li>
+                <li><a href="privacy.html">Confidentialité</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>

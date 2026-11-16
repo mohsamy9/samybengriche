@@ -2,26 +2,49 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Merci — Message envoyé | Samy Bengriche</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Message envoyé — Samy Bengriche</title>
     <meta name="robots" content="noindex" />
     <link rel="icon" href="img/TCOM_Logo.png" type="image/png" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
     <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-    <section class="section-hero" style="min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center;">
-        <div class="container">
-            <div style="font-size:4rem; margin-bottom:var(--space-4);">✅</div>
-            <span class="section-label">Message envoyé</span>
-            <h1 style="font-size:var(--font-size-3xl); margin:var(--space-4) 0;">Merci pour votre message !</h1>
-            <p style="color:var(--text-secondary); max-width:480px; margin:0 auto var(--space-8); line-height:var(--line-height-relaxed);">
-                Je vous répondrai dans les plus brefs délais. En attendant, n'hésitez pas à explorer mon portfolio.
-            </p>
-            <a href="index.html" class="btn-primary btn-primary-large">
-                Retour à l'accueil
+<body class="page-simple">
+    <header class="site-header is-scrolled">
+        <div class="wrap header-inner">
+            <a href="index.html" class="brand" aria-label="Samy Bengriche, accueil">
+                <span class="brand-mark" aria-hidden="true">SB</span>
+                <span class="brand-name">Samy Bengriche</span>
             </a>
+            <a href="index.html" class="btn btn-ghost" style="min-height:40px;padding:0 16px;font-size:.875rem">Retour au site</a>
         </div>
-    </section>
+    </header>
+    <main>
+        <section class="wrap notice">
+            <p class="eyebrow">Message envoyé</p>
+            <h1>Merci, votre message est bien arrivé.</h1>
+            <p>Je vous réponds sous 48&nbsp;heures ouvrées. Pour un sujet urgent, vous pouvez aussi m'appeler au <a href="tel:+33615210300">+33&nbsp;6&nbsp;15&nbsp;21&nbsp;03&nbsp;00</a>.</p>
+            <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="wrap footer-inner">
+            <p>© 2026 Samy Bengriche · Consultant indépendant, Paris</p>
+            <ul>
+                <li><a href="terms.html">CGU</a></li>
+                <li><a href="privacy.html">Confidentialité</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
